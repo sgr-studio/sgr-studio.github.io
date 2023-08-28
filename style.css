@@ -356,7 +356,7 @@ h1{
   top: 50px;
   z-index: 2;
   left: 0;
-  position: fixed;
+  /* position: fixed; */
 }
 
 .black {
