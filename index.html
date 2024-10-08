@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <script>
+        const pagename = "";
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="作る―ヨロコビ。それがタノシミ。">
+    <link rel="shortcut icon" href="https://sgr-studio.github.io/database/data/icon/favicon.png" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://sgr-studio.github.io/database/assets/scripts/css/cdn/import_cdn.css">
+    <link rel="stylesheet" href="https://sgr-studio.github.io/database/assets/scripts/css/main.css">
+    <link rel="stylesheet" href="https://sgr-studio.github.io/database/assets/scripts/css/top.css">
+    <link rel="stylesheet" href="https://sgr-studio.github.io/database/assets/scripts/css/responsive.css"> 
+    <title></title>
+</head>
+<body>
+    <div id="loading">
+        <!-- <img src="https://sgr-studio.github.io/database/data/icon/favicon.png" id="loadingIcon"> -->
+        <img src="https://sgr-studio.github.io/database/data/icon/favicon.png" id="loadingIconCenter">
+        <!-- <h3>SGR STUDIO</h3> -->
+    </div>
+    <div class="main">
+        <header>
+            <div>
+                <div onclick="homepage()">
+                    <img src="https://sgr-studio.github.io/database/data/icon/favicon.png" alt="logo">
+                    <h3 id="studioname">SGR STUDIO</h3><h3 id="pagename"></h3>
+                </div>
+                <ul>
+                    <li id="switch-theme" onclick="switcherTheme()"><i class="ri-sun-fill"></i></li>
+                    <a href="https://github.com/sgr-studio/" target="_blank" rel="noopener noreferrer">
+                        <li><i class="ri-github-fill"></i></li>
+                    </a>
+                </ul>
+            </div>
+        </header>
+        <div class="top">
+            <!-- <img src="/assets/textures/img/icons/terminal-box-fill.svg" alt="img" id="top-sideicon"> -->
+            <div>
+                <div class="cardholder">
+                </div>
+                <div class="title">
+                    <div>
+                        <div>
+                            <!-- <h1>作る　<span>ヨロコビ</span><br>それが<span>タノシミ</span></h1>
+                             -->
+                            <h1>作る―<span>ヨロコビ</span>。<br>それが<span>タノシミ</span>。<br><br><br>僕の<span class="marker">作品展示展</span>。</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contents">
+            <div>
+                <div>
+                    <h2><i class="ri-question-line"></i><span class="shikiri"></span>このサイトは何か</h2>
+                    <p><span>SGR STUDIO</span>は、<span>SGR</span>氏の作品を保存していく<span class="db">DB</span>サイトです。<br>当サイトは本人専用のサイトです。ですが、美術館の展示のように<br>誰でも閲覧ができます。よかったら見ていってください。</p>
+                    <p><span>作品展示品</span>らは、<span>以下のボタンを踏んで</span>閲覧してみてください。</p>
+                    <a href="http://sgr-studio.github.io/works" class="hyperlink-btn">作品展示展に移動</a>
+                </div>
+                <!-- <img src="https://thumb.ac-illust.com/39/39f5f456c3aaa7f15bb1126b91d7a16c_t.jpeg" alt="thanks ac-illust"> -->
+                <img src="https://doggy-kbk12.com/wp/wp-content/uploads/2021/05/materials.png" alt="thanks ac-illust">
+            </div>
+            <div>
+                <div>
+                    <h2><i class="ri-user-fill"></i><span class="shikiri"></span>SGR氏は何者か</h2>
+                    <p><span>SGR</span>(正式名称:<span>SuchGameR)</span>は、趣味で<span class="db">開発</span>をしている人です。<br><span>キウイバード</span>というニュージーランドの鳥が好きです。<br>名前の由来は、適当に決めたXboxのアカウント名からです。<br>あくまで趣味程度なので、不定期にやったりします。</p>
+                    <a href="http://sgr-studio.github.io/about" class="hyperlink-btn">ＳＧＲについて</a>
+                </div>
+                <img src="https://github.com/sgr-studio/database/blob/main/assets/textures/img/photo/back01.png?raw=true" alt="thanks ac-illust">
+            </div>
+            <div>
+                <div>
+                    <h2><i class="ri-youtube-fill"></i><span class="shikiri"></span>チャンネルを登録してね</h2>
+                    <p><span>SGR STUDIO</span>は、<span>YouTube</span>で動画を不定期ながら上げています。<br><span>もしよかったら、</span>登録してみてください。</p>
+                    <div class="hyperlinkHolder">
+                        <a href="http://sgr-studio.github.io/follow/" class="hyperlink-btn2">フォローに移動</a>
+                        <a href="http://youtube.com/@SGR-STUDIO-OFFICIAL/" target="_blank" rel="noopener noreferrer" class="hyperlink-btn2"><i class="ri-window-fill"></i> チャンネル移動</a>
+                    </div>
+                </div>
+                <img src="https://github.com/sgr-studio/database/blob/main/assets/textures/img/photo/back02.png?raw=true" alt="thanks ac-illust">
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div>
+            <div>
+                <div class="footer-logo">
+                    <img src="https://sgr-studio.github.io/database/data/icon/favicon.png" alt="logo">
+                    <h3>SGR STUDIO</h3>
+                </div>
+                <p>作る―ヨロコビ。それがタノシミ。</p>
+            </div>
+            <div>
+                <div>
+                    <h4>Pages</h4>
+                    <ul>
+                        <a href="https://sgr-studio.github.io/"><li>ホームページ</li></a>
+                        <a href="https://sgr-studio.github.io/works"><li>作品展示展</li></a>
+                        <a href="https://sgr-studio.github.io/about"><li>SGR氏は何者</li></a>
+                        <a href="https://sgr-studio.github.io/follow"><li>フォロー</li></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright">
+        <div>
+            <hr>
+            <span id="sign">SGR STUDIO since 2020-2024</span>
+        </div>
+    </div>
+    <!-- Script -->
+    <script src="https://sgr-studio.github.io/database/assets/scripts/js/main.js"></script>
+    <script src="https://sgr-studio.github.io/database/assets/scripts/js/card.js"></script>
+</body>
+</html>
