@@ -1,0 +1,238 @@
+.content {
+    scroll-snap-type: y mandatory;
+    height: fit-content;
+    scroll-snap-align: start;
+}
+
+.pTitle h2 {
+    font-family: "Russo One", sans-serif;
+    font-weight: normal;
+    font-size: 50px;
+    letter-spacing: 4px;
+    line-height: 60px;
+}
+
+.pickup h2 {
+    font-family: "Russo One", sans-serif;
+    font-weight: normal;
+    font-size: 30px;
+    letter-spacing: 4px;
+    line-height: 60px;
+    animation: forwards spawn 0.5s;
+}
+
+#pickup-ul div:only-child {
+    display: block;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
+    width: fit-content;
+    height: fit-content;
+    overflow: hidden;
+}
+
+#pickup-ul div {
+    height: 200px;
+}
+
+#pickup-ul div div {
+    display: flex;
+}
+
+#pickup-ul div div div:last-child span {
+    text-align: right;
+    width: calc(100% - 10px);
+    line-height: 40px;
+}
+
+#pickup-ul div div div div{
+    display: flex;
+    justify-content: space-between;
+}
+
+#pickup-ul div h3 {
+    line-height: 30px;
+    display: block;
+    margin: 5px;
+    margin-bottom: 0;
+}
+
+#pickup-ul div h3 img {
+    height: 30px;
+}
+
+#mb-tel0 {
+    display: none;
+    font-size: 65px;
+    line-height: 80px;
+}
+
+@keyframes spawn {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media screen and (max-width: 595px) {
+    #mb-tel0 {
+        display: block;
+    }
+    #pc-tel0 {
+        display: none;
+    }
+}
+
+.card {
+    display: flex;
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    overflow-y: scroll;
+}
+
+.card nav, .card nav ul {
+    display: flex;
+    width: 100%;
+}
+
+.card nav ul div {
+    border-radius: 10px;
+    width: 100%;
+    aspect-ratio: 2/3;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.card nav ul div div div {
+    height: 0%;
+    transition: 0.5s all;
+}
+
+.card nav ul div div div:first-child {
+    backdrop-filter: blur(1.5px);
+}
+
+.card nav ul div div div:last-child {
+    background-color: #1e1f22;
+    color: white;
+    padding: 10px;
+    width: calc(100% - 20px);
+    height: 100%;
+}
+
+.card nav ul div:hover .card nav ul div div div:last-child {
+    height: 60%;
+    cursor: pointer;
+}
+
+.card nav ul div:hover .card nav ul div div div {
+    height: 40%;
+    aspect-ratio: 2/3;
+}
+
+.card nav ul div:hover .card nav ul div div div:first-child {
+    height: 40%;
+}
+
+.card nav ul div:hover .card nav ul div div div:last-child {
+    height: 60%;
+    cursor: pointer;
+}
+
+.card nav ul div div div h3 {
+    line-height: 40px;
+    font-size: 20px;
+    margin: 5px;
+    font-family: "Russo One", sans-serif;
+    font-weight: normal;
+    /* text-align: center; */
+}
+
+.card nav ul div div div span {
+    line-height: 80px;
+    font-size: 60px;
+    align-items: flex-start;
+    display: flex;
+    font-family: "Russo One", sans-serif;
+    font-weight: normal;
+    justify-content: center;
+}
+
+.card nav ul div div div a {
+    display: flex;
+    margin-top: 10px;
+    color: black;
+    width: fit-content;
+    padding: 10px;
+    background-color: #8fc830;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    display: none;
+}
+
+
+.card nav ul div * {
+    margin: 0;
+    padding: 0;
+}
+
+.card nav ul div:hover > div > div:first-child {
+    height: 40%;
+}
+
+.card nav ul div:hover > div > div:last-child {
+    height: 60%;
+}
+
+@media screen and (max-width:850px) {
+    .card nav ul{
+        width: 100%;
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
+    }
+    .card nav ul div{
+        width: calc(50vw - 15px);
+        margin: 5px;
+        height: 250px !important;
+    }
+    .card nav ul div div {
+        margin: 0;
+        padding: 0;
+    }
+    .card nav ul div div div:first-child {
+        height: 0px !important;
+    }
+    .card nav ul div div div a {
+        display: block;
+        margin-top: 25px;
+    }
+    .card nav ul div div div p {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+}
+
+#cd01 {
+    background-image: url("../img/bg/cd01.png") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#tweets {
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+    min-width: 200px;
+    margin: 0 auto;
+    overflow-y: scroll;
+}

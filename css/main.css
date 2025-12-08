@@ -1,0 +1,140 @@
+.top {
+    line-height: 300px;
+    color: white;
+    text-shadow: white 0px 0px 5px;
+    text-align: center;
+    width: calc(100% - 30px);
+    height: 300px;
+    margin: 15px;
+    border-radius: 10px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(https://giffiles.alphacoders.com/221/221837.gif);
+}
+
+main {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+@keyframes animationPoint {
+    0% {
+        transform: scale(0.8);
+    }
+    50% {
+        transform: scale(0.6);
+    }
+    100% {
+        transform: scale(0.8);
+    }
+}
+
+@media screen and (max-width: 485px) {
+    .pickup div:first-child {
+        display: none;
+    }
+    .infos {
+        min-width: none !important;
+        width: fit-content !important;
+        position: unset !important;
+        width: 100vw !important;
+        position: unset !important;
+    }
+    #t_infoT {
+        width: fit-content !important;
+        font-size: 28px !important;
+        margin: 0 auto !important;
+    }
+    #t_infoP {
+        word-break: break-all !important;
+        width: calc(100vw - 20px) !important;
+        font-size: 16px !important;
+        margin: 0 auto !important;
+    }
+    #links {
+        width: fit-content !important;
+        min-width: none;
+        margin: 0 auto !important;
+    }
+}
+
+@media screen and (max-width:780px) {
+    #intro-div div h1 {
+        font-size: 35px;
+    }
+}
+
+@media screen and (min-width: 701px) {
+    h6 {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #intro-div div:nth-child(2) {
+        display: none !important;
+    }
+    #intro-div div:first-child {
+        width: 100%;
+    }
+    #widget {
+        display: none;
+    }
+}
+
+#menu h2 {
+    font-family: "Russo One", sans-serif;
+    font-weight: normal;
+    letter-spacing: 2.5px;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+/* Add new something to code */
+
+.card {
+    display: block !important;
+}
+
+.card nav{
+    width: calc(100% - 20px) !important;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.card nav ul{
+    width: calc(100% - 10px) !important;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    background-color: blue;
+    opacity: 0.5;
+}
+
+.card nav ul li {
+    height: fit-content;
+    width: 50%;
+}
+
+hr {
+    margin: 5px;
+    border: none;
+    border-top: 4px #eaeaea solid;
+    border-radius: 4px;
+}
+
+
+/* aa */
+
+.introduction {
+    aspect-ratio: 16/9;
+    width: 100%;
+    border-radius: 10px;
+    background-color: black;;
+}

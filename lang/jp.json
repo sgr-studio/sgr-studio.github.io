@@ -1,0 +1,34 @@
+{
+  "Home": {
+    "title": "/ ホーム",
+    "top-title": "創造は、僕らを幸せにする",
+    "top-desc": "私たちは小さな独立系スタジオ、<span class='code'>SGR STUDIO</span>です。<br>様々なアプリを開発しています。<br>誰にとっても役立ち、楽しいアプリを作成しています。<br>ぜひ当サイトを見て回り、私たちのアプリを試してみてください！",
+    "link-apps": "私たちのアプリ",
+    "link-news": "最新ニュース",
+    "navi-home": "ホーム",
+    "navi-news": "ニュース",
+    "navi-apps": "アプリ",
+    "navi-contact": "コンタクト"
+  },
+  "News": {
+    "title": "/ ニュース",
+    "navi-home": "ホーム",
+    "navi-news": "ニュース",
+    "navi-apps": "アプリ",
+    "navi-contact": "コンタクト"
+  },
+  "Apps": {
+    "title": "/ アプリ",
+    "navi-home": "ホーム",
+    "navi-news": "ニュース",
+    "navi-apps": "アプリ",
+    "navi-contact": "コンタクト"
+  },
+  "Contact": {
+    "title": "/ コンタクト",
+    "navi-home": "ホーム",
+    "navi-news": "ニュース",
+    "navi-apps": "アプリ",
+    "navi-contact": "コンタクト"
+  }
+}

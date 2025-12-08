@@ -1,0 +1,347 @@
+.introduce {
+    max-width: 1070px;
+    display: flex;
+    padding-top: 100px;
+    /* padding-top: calc(50vh - 150px); */
+    background-color: white;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+.introduce div{
+    margin: 0 auto;
+    display: flex;
+    overflow: hidden;
+}
+#intro-div {
+    display: flex; 
+    overflow: hidden;
+    /* animation: forwards show1 3s; */
+    width: fit-content;
+}
+#intro-div div:last-child {
+    display: block;
+    padding-right: 20px;
+    padding-left: 10px;
+    height: 100%;
+    flex-wrap: nowrap;
+    text-wrap: none;
+}
+#intro-img {
+    width: 100%;
+    max-width: 250px;
+    /* animation: forwards show2 2s; */
+    z-index: +4;
+}
+
+@keyframes show1 {
+    0% {
+        display: block;
+        max-width: 0px;
+    }
+    100% {
+        display: none;
+        max-width: 1000px;
+    }
+}
+@keyframes show1-1 {
+    0% {
+        display: none;
+        width: 0px;
+        max-width: 0;
+    }
+    50% {
+        display: block;
+        width: 0px;
+        max-width: 0px;
+    }
+    100% {
+        display: block;
+        width: 100%;
+        max-width: fit-content;
+    }
+}
+
+
+#intro-div div h4 {
+    white-space: nowrap;
+    animation: infinite animation 3s;
+    transform-origin: bottom center;
+    width: fit-content;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+
+
+@keyframes textShine {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+#cursor_text {
+    background-color: black;
+    margin-left: 3px;
+}
+
+h6 {
+    line-height: 70px;
+    position: absolute;
+    font-size: 55px;
+    font-family: "Fredoka", sans-serif;
+    left: 0px;
+    width: 100vw;
+    white-space: nowrap;
+    text-align: center;
+    transform: translateY(-25px);
+}
+
+#clear {
+    background-color: white; 
+    color: #ffffff00;
+    border: none;
+    animation: infinite animation 0.8s ease-in-out;
+}
+
+.about {
+    display: flex;
+    margin: 10px;
+    border-radius: 10px;
+    width: calc(100% - 20px);
+    margin-bottom: 100px;
+    background-color: #1e1f22;
+    justify-content: space-between; 
+    overflow: hidden;
+}
+
+.about div:first-child {
+    height: fit-content;
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    justify-content: center;
+    align-self: center;
+}
+
+.about div div{
+    display: flex;
+    margin: 0 auto;
+}
+
+.about div div:first-child h3{
+    color: white;
+    font-weight: bolder; 
+    font-size: 23px;
+    margin: 0px;
+    height: 80px;
+    width: 80px;
+    padding: 10px;
+    line-height: 80px;
+}
+
+.about div:first-child div {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-self: center;
+}
+
+.about div div:last-child {
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    padding: 10px;
+    /* background-color: rgb(232, 232, 232); */
+    color: white;
+    width: fit-content;
+    border-radius: 5px;
+}
+
+#author {
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+}
+
+@keyframes animation {
+    0% {
+        transform: rotateZ(3deg);
+    }
+    25% {
+        transform: rotateZ(0deg);
+    }
+    50% {
+        transform: rotateZ(-3deg);
+    }
+    75% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(3deg);
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(40px);
+    }
+    20% {
+        opacity: 0;
+        transform: scale(0.9) translateY(40px);
+    }
+    80% {
+        transform: scale(1) translateY(0px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0px);
+    }
+}
+
+/* aaaa */
+#top-image {
+    width: 100%;
+    background: linear-gradient(110deg, #ffffff, #ffffff, #ffffff00), url(/karina-formanova-rainforest-animation.gif);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: right center;
+    border-radius: 10px;
+    animation: forwards fade-in 1.5s ease;
+}
+
+#intro-div h1 {
+    font-size: 40px;
+    font-weight: bolder;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 30px;
+    font-family: "Fredoka", sans-serif;
+}
+
+#intro-div p {
+    font-size: 16px;
+    line-height: 26px;
+}
+
+/* video */
+.video {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 16 / 9;
+}
+
+.video iframe, .video video {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* aa */
+
+.container-devide h1 {
+    font-size: 40px;
+    font-weight: bolder;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 30px;
+    font-family: "Fredoka", sans-serif;
+    line-height: 60px;
+    color: #333;
+}
+
+.container-devide span.code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    padding: 2px 6px;
+    font-size: 16px;
+    margin: 0 2px;
+    
+}
+.container-devide div.links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 20px;
+    padding-bottom: 40px;
+}
+
+.container-devide div.links a {
+    background-color: #1650BB;
+    color: white;
+    text-decoration: none;
+    font-family: "Fredoka", sans-serif;
+    padding: 5px 10px;
+    font-size: 16px;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    line-height: 20px;
+    border-radius: 8px;
+}
+
+
+#pickup-lists {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1070px;
+    overflow: hidden;
+    overflow-x: scroll;
+    scrollbar-width: unset;
+    gap: 10px;
+    margin-top: 20px;
+    height: 208px;
+}
+
+#pickup-container {
+    display: flex;
+    width: fit-content;
+    flex-wrap: nowrap;
+    /* justify-content: center; */
+}
+/* aaaaa */
+
+.pickup-item {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 2.5px;
+    background-color: #ffbf7f;
+    cursor: pointer;
+}
+
+.pickup-item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.pickup-text {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pickup-title {
+    font-family: "Russo One", sans-serif
+}

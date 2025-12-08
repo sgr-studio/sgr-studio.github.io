@@ -1,0 +1,78 @@
+.container-point {
+    margin: 0;
+    padding: 0;
+    /* height: calc(100vh - 120px); */
+    height: calc(100% - 120px);
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    perspective: 1000px;
+    /* padding-bottom: 40px; */
+}
+
+.container {
+    position: relative;
+    transform-style: preserve-3d;
+    /* コンテナ自体の回転は不要になるため削除 */
+}
+
+.point {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+}
+
+/* text */
+/* CSS */
+.container-text-pos {
+    margin: 0;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+#container-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    perspective: 800px; /* 3D空間の深度を設定 */
+}
+
+/* devide */
+
+.container-devide {
+    margin: 0;
+    padding: 0;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    perspective: 1000px;
+    padding-bottom: 40px;
+    background: transparent;
+}
+
+@media screen and (max-width: 820px) {
+    .container-point {
+        width: 100%;
+        position: absolute;
+    }
+    .container-devide div.infos{
+        /* mix-blend-mode: luminosity; */
+        backdrop-filter: blur(6px);
+        padding: 5px;
+        padding-top: 60px;
+        padding-bottom: 60px;
+        z-index: +200;
+    }
+}
+
+.infos {
+    animation: forwards fade-in 1s ease;
+    min-width: 500px;
+}

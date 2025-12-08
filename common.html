@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="common.css">
+  <!-- Icons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <title>SGR STUDIO</title>
+</head>
+<body>
+  <div id="menu" style="display: none;">
+    <h2 id="htm">Navigation</h2>
+    <nav>
+      <ul>
+        <a href="index.html">
+          <li class="mtion1" id="hl1m" data-tr="navi-home">HOME</li>
+        </a>
+        <a href="news.html">
+          <li class="mtion2" id="hl2m" data-tr="navi-news">NEWS</li>
+        </a>
+        <a href="apps.html">
+          <li class="mtion3" id="hl3m" data-tr="navi-apps">APPS</li>
+        </a>
+        <a href="contact.html">
+          <li class="mtion4" id="hl4m" data-tr="navi-contact">CONTACT</li>
+        </a>
+      </ul>
+    </nav>
+  </div>
+  <header>
+    <div>
+      <div>
+        <a href="index.html" class="logo">
+          <div id="logo">
+            <!-- <img src="https://sgr-studio.github.io/database/data/icon/favicon.png" alt="logo"> -->
+            <!-- <img src="logo.svg" class="logo-svg"> -->
+             <div class="logo-svg"></div>
+            <span>SGR STUDIO</span>
+          </div>
+        </a>
+      </div>
+      <div>
+        <nav>
+          <ul>
+            <a href="index.html">
+              <li class="mtion1" id="hl1" data-tr="navi-home">HOME</li>
+            </a>
+            <a href="news.html">
+              <li class="mtion2" id="hl2" data-tr="navi-news">NEWS</li>
+            </a>
+            <a href="apps.html">
+              <li class="mtion3" id="hl3" data-tr="navi-apps">APPS</li>
+            </a>
+            <a href="contact.html">
+              <li class="mtion4" id="hl4" data-tr="navi-contact">CONTACT</li>
+            </a>
+          </ul>
+        </nav>
+        <!-- <button id="hamburgerMenuV1"><i class='bx bx-menu'></i></button> -->
+        <button id="hamburgerMenuV2" onclick="flagMenu()"><i class='bx bx-menu'></i></button>
+      </div>
+    </div>
+  </header>
+  <div class="screen">
+    <main>
+    </main>
+    <footer>
+      <div class="footer-main">
+        <div class="footer-logo">
+          <img src="media/svg/logo.svg" alt="logo">
+          <!-- <span>SGR STUDIO</span> -->
+          <div id="SelectOptions">
+            <select name="settings" id="themeSelect">
+              <option value="auto">Auto</option>
+              <option value="dark">Dark</option>
+              <option value="light">Light</option>
+            </select>
+            <select name="settings" id="langSelect">
+              <option value="auto">Auto</option>
+              <option value="en">English</option>
+              <option value="jp">日本語</option>
+            </select>
+          </div>
+        </div>
+        
+        <div>
+          <!-- <nav>
+            <h3 id="t_adT">Advertisement</h3>
+            <ul>
+              <a href="index.html">
+                <li class="mtion1">SGR Storage</li>
+              </a>
+              <a href="contact.html">
+              </a>
+            </ul>
+          </nav> -->
+          <nav>
+            <h3 id="t_spT">Site Pages</h3>
+            <ul>
+              <a href="index.html">
+                <li class="mtion1" id="splh1">HOME</li>
+              </a>
+              <a href="news.html">
+                <li class="mtion2" id="splh2">NEWS</li>
+              </a>
+              <a href="apps.html">
+                <li class="mtion3" id="splh3">APPS</li>
+              </a>
+              <a href="contact.html">
+                <li class="mtion4" id="splh4">CONTACT</li>
+              </a>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <h3></h3>
+      <p><small>&COPY; SGR STUDIO</small></p>
+    </footer>
+  </div>
+  <script src="script/translater.js"></script>
+  <script src="toggleMenu.js"></script>
+</body>
+</html>
