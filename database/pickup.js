@@ -25,7 +25,7 @@ function createPickupItem(item) {
   const itemEl = document.createElement('div');
   itemEl.classList.add('pickup-item');
   itemEl.innerHTML = `
-    <a ondblclick="window.open('${item.url}', '_blank');" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/media/icon/${item.img}'); background-size: cover; background-position: center;" target="_blank" rel="noopener noreferrer">
+    <a href="${item.url}" target="_blank" rel="noopener noreferrer" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/media/icon/${item.img}'); background-size: cover; background-position: center;">
       <div class="pickup-text">
         <h3 class="pickup-title">${item.tags}</h3>
       </div>

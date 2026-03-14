@@ -60,3 +60,36 @@
     padding: 20px;
     color: #333;
 }
+
+.contact-form-container {
+    background-color: #f1f1f1;
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 800px;
+    width: calc(100% - 80px);
+    margin: 0 auto;
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.contact-form-container p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.contact-button {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: #45a049;
+}

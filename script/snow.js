@@ -89,8 +89,6 @@ function initSnow(){
 
 const today = new Date();
 today.setHours(today.getHours() + 9); // 日本時間に調整
-alert(today.getMonth() && "/" && today.getDate() == 22)
 if(today.getMonth() == 11 && today.getDate() == 22){
     window.onload = initSnow;
-    return;
 }
