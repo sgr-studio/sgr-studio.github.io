@@ -1,0 +1,34 @@
+{
+  "Home": {
+    "title": "Home",
+    "top-title": "Making makes us happy",
+    "top-desc": "We are <span class='code'>SGR STUDIO</span>, a small independent studio developing a variety of apps.<br>We create apps that are useful and fun for everyone.<br>Please take a look around our site and try out our apps!",
+    "link-apps": "Our Apps",
+    "link-news": "Latest News",
+    "navi-home": "HOME",
+    "navi-news": "NEWS",
+    "navi-apps": "APPS",
+    "navi-contact": "CONTACT"
+  },
+  "News": {
+    "title": "News",
+    "navi-home": "HOME",
+    "navi-news": "NEWS",
+    "navi-apps": "APPS",
+    "navi-contact": "CONTACT"
+  },
+  "Apps": {
+    "title": "Apps",
+    "navi-home": "HOME",
+    "navi-news": "NEWS",
+    "navi-apps": "APPS",
+    "navi-contact": "CONTACT"
+  },
+  "Contact": {
+    "title": "Contact",
+    "navi-home": "HOME",
+    "navi-news": "NEWS",
+    "navi-apps": "APPS",
+    "navi-contact": "CONTACT"
+  }
+}

@@ -1,0 +1,39 @@
+{
+    "items": [
+        {
+        "title": "Republic of KiwiBard",
+        "url": "https://sgr-studio.github.io/republic-of-bird/",
+        "img": "republic.png",
+        "description": "Main page of Republic of KiwiBard",
+        "tags": ["Republic"]
+        },
+        {
+        "title": "Kumamon Koubun",
+        "url": "https://sgr-studio.github.io/kumamon-koubun/",
+        "img": "kumamon.png",
+        "description": "Kumamon Koubun is a convert for WHO?",
+        "tags": ["Kumamon Koubun"]
+        },
+        {
+        "title": "Homemade Ciphers",
+        "url": "https://sgr-studio.github.io/Homemade-Ciphers/",
+        "img": "pass.png",
+        "description": "This cipher tool is set the password to encrypt and decrypt messages.",
+        "tags": ["Ciphers"]
+        },
+        {
+        "title": "Binary Numeral System tool",
+        "url": "https://suchgamer.github.io/2shinsuu/",
+        "img": "bnr.png",
+        "description": "BNRTool is visual binary numeral system for learning and playing with hands.",
+        "tags": ["BNRTool"]
+        },
+        {
+        "title": "Task Manager Pro",
+        "url": "https://sgr-studio.github.io/task-manager-pro/",
+        "img": "https://sgr-studio.github.io/task-manager-pro/images/og-image.png",
+        "description": "Task Manager Pro is a powerful task management app that helps you stay organized and productive.",
+        "tags": ["Productivity"]
+        }
+    ]
+}
