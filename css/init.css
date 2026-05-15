@@ -1,0 +1,210 @@
+@import url(./import.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--text-primary);
+    font-family: "IBM Plex Sans JP", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+html, body {
+    background: var(--primary);
+    height: 100vh;
+    width: 100%;
+}
+
+header, main, footer {
+    width: 100%;
+}
+
+.container {
+    max-width: 1080px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    filter: blur(25px);
+    background: radial-gradient(circle at 50% 50%, #fff 0%, #f9fff0 100%);
+}
+
+.blob {
+    position: absolute;
+    transform-origin: center;
+    animation: float infinite linear;
+    opacity: 0.5; /* 透明度を上げました */
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: calc(100vh - 80px);
+    padding: 40px 10px;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-title {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #222 0%, #8fc830 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 32px;
+}
+
+.btn-primary {
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background-color: #8fc830;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(143, 200, 48, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(143, 200, 48, 0.4);
+}
+
+.hero-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.hero-image-blob {
+    width: 450px;
+    height: 450px;
+    background: linear-gradient(45deg, #8fc830, #d4fc79);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: morph 8s ease-in-out infinite;
+    box-shadow: 0 20px 40px rgba(143, 200, 48, 0.2);
+}
+
+@keyframes morph {
+    0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+    33% {
+        transform: translate(10vw, 5vh) rotate(120deg) scale(1.1);
+    }
+    66% {
+        transform: translate(-5vw, 15vh) rotate(240deg) scale(0.9);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg) scale(1);
+    }
+}
+
+.header-container {
+    padding: 0px 10px;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    user-select: none;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-container ul {
+    display: flex;
+    list-style: none;
+    height: 100%;
+}
+
+.header-container .logo-container {
+    display: flex;
+    padding: 5px 10px;
+    width: fit-content;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.header-container .logo-container span {
+    font-size: 18px;
+    /* font-family: "IBM Plex Sans JP", sans-serif; */
+    font-family: 'Gotham';
+    line-height: 40px;
+    text-indent: 10px;
+}
+
+.header-container .logo-container .logo {
+    width: 40px;
+    height: 40px;
+    mask-image: url(/assets/svg/logo.svg);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    display: inline-block;
+    aspect-ratio: 1/1;
+    background-color: #8fc830;
+}
+
+.header-container .logo-container:hover {
+    background-color: #8fc830;
+}
+
+.header-container .logo-container:hover > span {
+    color: white;
+}
+
+.header-container .logo-container:hover > .logo {
+    background: white;
+}
+
+.header-navigation {
+    height: 100%;
+}
+
+.header-navigation ul li {
+    height: 100%;
+    padding: 4px 8px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+}
+
+.header-navigation ul li:hover {
+    background: var(--primary);
+}
