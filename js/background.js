@@ -1,89 +1,140 @@
-const background = document.querySelector('.background');
+const starsContainer = document.querySelector('.stars-container');
+const themeToggle = document.getElementById('themeToggle');
 
-function createBlob() {
-    if (!background) return;
+let stars = [];
+let starLines = [];
+const MAX_DISTANCE = 15; // 接続する最大距離（％単位）
+const STAR_COUNT = 100;   // 星の数
 
-    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("viewBox", "0 0 100 100");
-    svg.classList.add("blob");
+// --- Stars Logic ---
+function createStars() {
+    if (!starsContainer) return;
+    
+    starsContainer.innerHTML = '';
+    stars = [];
 
-    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    
-    // Initial random blob shape
-    const d1 = createBlobPath();
-    const d2 = createBlobPath();
-    const d3 = createBlobPath();
-    
-    path.setAttribute("d", d1);
-    
-    // Add animation for morphing
-    const animate = document.createElementNS("http://www.w3.org/2000/svg", "animate");
-    animate.setAttribute("attributeName", "d");
-    animate.setAttribute("dur", `${15 + Math.random() * 10}s`);
-    animate.setAttribute("values", `${d1}; ${d2}; ${d3}; ${d1}`);
-    animate.setAttribute("repeatCount", "indefinite");
-    
-    path.appendChild(animate);
-    svg.appendChild(path);
-    
-    // Random position and size
-    const size = 400 + Math.random() * 400; // Increased size
-    svg.style.width = `${size}px`;
-    svg.style.height = `${size}px`;
-    
-    // Position more toward the center or sides
-    svg.style.left = `${Math.random() * 110 - 5}%`;
-    svg.style.top = `${Math.random() * 110 - 5}%`;
-    
-    svg.style.animationDuration = `${30 + Math.random() * 30}s`;
-    svg.style.animationDelay = `${-Math.random() * 30}s`;
-    
-    // More vibrant colors
-    const hue = 80 + Math.random() * 40; // 80 to 120 (Greenish)
-    path.setAttribute("fill", `hsla(${hue}, 70%, 75%, 0.6)`); // Increased opacity and saturation
-
-    background.appendChild(svg);
-}
-
-function createBlobPath() {
-    const points = [];
-    const numPoints = 6;
-    const angleStep = (Math.PI * 2) / numPoints;
-    const radius = 35; // slightly smaller base to allow for more variance
-    
-    for (let i = 0; i < numPoints; i++) {
-        const angle = i * angleStep;
-        // More variance for "blobbier" look
-        const r = radius + (Math.random() * 20 - 10);
-        const x = 50 + Math.cos(angle) * r;
-        const y = 50 + Math.sin(angle) * r;
-        points.push({ x, y });
-    }
-    
-    return solve(points, true);
-}
-
-function solve(data, closed) {
-    if (data.length < 2) return "";
-    let d = `M${data[0].x},${data[0].y}`;
-    
-    for (let i = 0; i < data.length; i++) {
-        const p1 = data[i];
-        const p2 = data[(i + 1) % data.length];
+    for (let i = 0; i < STAR_COUNT; i++) {
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const size = 1 + Math.random() * 2;
         
-        // Use midpoint as control point for smoother curves
-        const midX = (p1.x + p2.x) / 2;
-        const midY = (p1.y + p2.y) / 2;
+        const starEl = document.createElement('div');
+        starEl.classList.add('star');
+        starEl.style.width = `${size}px`;
+        starEl.style.height = `${size}px`;
         
-        // Simplified smooth curve
-        d += ` Q${p1.x},${p1.y} ${midX},${midY}`;
+        // Random drift speed
+        const driftX = (Math.random() - 0.5) * 0.01;
+        const driftY = (Math.random() - 0.5) * 0.01;
+        
+        starsContainer.appendChild(starEl);
+        
+        stars.push({
+            el: starEl,
+            x: x,
+            y: y,
+            driftX: driftX,
+            driftY: driftY,
+            speed: 0.2 + Math.random() * 0.3 // Increased parallax speed
+        });
     }
-    
-    d += " Z"; // Close path
-    return d;
 }
 
-// Create fewer but larger/more visible blobs
-for (let i = 0; i < 6; i++) {
-    createBlob();
+function updateConstellations() {
+    // 既存の線を削除（パフォーマンスのため、毎回作り直すのではなく再利用する設計も可能ですが、まずは確実な表示を優先）
+    starLines.forEach(line => line.remove());
+    starLines = [];
+
+    for (let i = 0; i < stars.length; i++) {
+        for (let j = i + 1; j < stars.length; j++) {
+            const s1 = stars[i];
+            const s2 = stars[j];
+            
+            // 現在の表示上の座標を計算（パララックス込み）
+            const scrollY = window.scrollY;
+            const p1y = s1.y + (scrollY * s1.speed / window.innerHeight * 100);
+            const p2y = s2.y + (scrollY * s2.speed / window.innerHeight * 100);
+            
+            const dx = s1.x - s2.x;
+            const dy = p1y - p2y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            
+            if (dist < MAX_DISTANCE) {
+                const line = document.createElement('div');
+                line.classList.add('star-line');
+                
+                // 距離に応じて透明度を変える
+                const opacity = 1 - (dist / MAX_DISTANCE);
+                line.style.opacity = opacity * 0.5;
+
+                const x1 = s1.x * window.innerWidth / 100;
+                const y1 = p1y * window.innerHeight / 100;
+                const x2 = s2.x * window.innerWidth / 100;
+                const y2 = p2y * window.innerHeight / 100;
+                
+                const ldx = x2 - x1;
+                const ldy = y2 - y1;
+                const length = Math.sqrt(ldx * ldx + ldy * ldy);
+                const angle = Math.atan2(ldy, ldx) * 180 / Math.PI;
+                
+                line.style.width = `${length}px`;
+                line.style.left = `${x1}px`;
+                line.style.top = `${y1}px`;
+                line.style.transform = `rotate(${angle}deg)`;
+                
+                starsContainer.appendChild(line);
+                starLines.push(line);
+            }
+        }
+    }
 }
+
+// --- Animation Loop ---
+function animate() {
+    const scrollY = window.scrollY;
+
+    stars.forEach(star => {
+        // Slow constant drift
+        star.x += star.driftX;
+        star.y += star.driftY;
+
+        // Wrap around
+        if (star.x < -5) star.x = 105;
+        if (star.x > 105) star.x = -5;
+        if (star.y < -5) star.y = 105;
+        if (star.y > 105) star.y = -5;
+
+        // Update star position with parallax
+        const moveY = scrollY * star.speed;
+        star.el.style.left = `${star.x}%`;
+        star.el.style.top = `${star.y}%`;
+        star.el.style.transform = `translateY(${moveY}px)`;
+    });
+    
+    updateConstellations();
+
+    requestAnimationFrame(animate);
+}
+
+// --- Theme Logic ---
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    themeToggle.textContent = newTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+    localStorage.setItem('theme', newTheme);
+}
+
+// Initial state
+const savedTheme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', savedTheme);
+if (themeToggle) {
+    themeToggle.textContent = savedTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+    themeToggle.addEventListener('click', toggleTheme);
+}
+
+// Initialize
+window.addEventListener('load', () => {
+    createStars();
+    requestAnimationFrame(animate);
+});

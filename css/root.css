@@ -1,4 +1,17 @@
 :root {
-    --primary: #fff;
-    --text-primary: #222;
+    --primary: #ffffff;
+    --text-primary: #222222;
+    --text-secondary: #555555;
+    --accent: #8fc830;
+    --bg-gradient: radial-gradient(circle at 50% 50%, #fff 0%, #f9fff0 100%);
+    --blob-opacity: 0.5;
+}
+
+[data-theme="dark"] {
+    --primary: #0a0f02;
+    --text-primary: #f0fdf4;
+    --text-secondary: #a0aec0;
+    --accent: #a3e635;
+    --bg-gradient: radial-gradient(circle at 50% 50%, #0a0f02 0%, #050801 100%);
+    --blob-opacity: 0.3;
 }

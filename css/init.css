@@ -11,19 +11,22 @@
 }
 
 html, body {
-    background: var(--primary);
-    height: 100vh;
+    color: var(--text-primary);
+    min-height: 100vh;
     width: 100%;
-}
-
-header, main, footer {
-    width: 100%;
+    overflow-x: hidden;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .container {
     max-width: 1080px;
-    width: 100%;
     margin: 0 auto;
+}
+
+header, main, footer {
+    width: 100%;
+    position: relative;
+    z-index: 10; /* コンテンツを前面に */
 }
 
 .background {
@@ -32,17 +35,47 @@ header, main, footer {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: -10;
     overflow: hidden;
-    filter: blur(25px);
-    background: radial-gradient(circle at 50% 50%, #fff 0%, #f9fff0 100%);
+    background: var(--bg-gradient);
+    transition: background 0.5s ease;
 }
 
-.blob {
+/* Blob 関連のスタイルは削除しました */
+
+.stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -5;
+    opacity: 0;
+    transition: opacity 1s ease;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+[data-theme="dark"] .stars-container {
+    opacity: 1;
+}
+
+.star {
     position: absolute;
-    transform-origin: center;
-    animation: float infinite linear;
-    opacity: 0.5; /* 透明度を上げました */
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.4);
+    animation: twinkle var(--duration) infinite ease-in-out;
+    will-change: transform;
+}
+
+.star-line {
+    position: absolute;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+    height: 1px;
+    transform-origin: left center;
+    pointer-events: none;
+    will-change: transform;
 }
 
 /* Hero Section */
@@ -52,64 +85,134 @@ header, main, footer {
     justify-content: space-between;
     min-height: calc(100vh - 80px);
     padding: 40px 10px;
-    gap: 40px;
+    position: relative;
+    overflow: visible;
+    z-index: 5;
 }
 
 .hero-content {
     flex: 1;
-    max-width: 600px;
+    max-width: 650px;
+    position: relative;
+    z-index: 2;
 }
 
 .hero-title {
-    font-size: 64px;
+    font-size: clamp(40px, 8vw, 72px);
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 24px;
-    background: linear-gradient(135deg, #222 0%, #8fc830 100%);
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    z-index: 9;
+    white-space: nowrap;
+    width: 110%;
 }
 
 .hero-description {
-    font-size: 18px;
+    font-size: clamp(16px, 2vw, 20px);
     line-height: 1.6;
-    color: #555;
+    color: var(--text-secondary);
     margin-bottom: 32px;
 }
 
 .btn-primary {
-    padding: 16px 32px;
-    font-size: 16px;
+    padding: 16px 40px;
+    font-size: 18px;
     font-weight: 600;
     color: white;
-    background-color: #8fc830;
+    background-color: var(--accent);
     border: none;
-    border-radius: 30px;
+    border-radius: 40px;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 15px rgba(143, 200, 48, 0.3);
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(143, 200, 48, 0.3);
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(143, 200, 48, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(143, 200, 48, 0.4);
+    background-color: var(--accent);
+    filter: brightness(0.9);
+}
+
+.theme-toggle {
+    background: none;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-left: 20px;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(143, 200, 48, 0.4);
+    background-color: #7ab329;
 }
 
 .hero-image-container {
-    flex: 1;
+    transition: 0.5s all ease;
+    position: absolute;
+    right: -150px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 600px;
+    height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .hero-image-blob {
-    width: 450px;
-    height: 450px;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(45deg, #8fc830, #d4fc79);
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     animation: morph 8s ease-in-out infinite;
-    box-shadow: 0 20px 40px rgba(143, 200, 48, 0.2);
+    opacity: 1;
+    box-shadow: 0 30px 60px rgba(143, 200, 48, 0.2);
+}
+
+/* Responsive adjustment */
+@media (max-width: 900px) {
+    .hero-image-container {
+        right: -200px;
+        width: 500px;
+        height: 500px;
+        opacity: 0.6;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .hero-image-container {
+        right: -100px;
+        top: 60%;
+        width: 400px;
+        height: 400px;
+        opacity: 0.4;
+    }
+    
+    .header-navigation {
+        display: none; /* シンプルにするためモバイルでは一旦非表示 */
+    }
 }
 
 @keyframes morph {
