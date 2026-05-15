@@ -3,8 +3,11 @@
     --text-primary: #222222;
     --text-secondary: #555555;
     --accent: #8fc830;
+    --accent-hover: #8fc830;
     --bg-gradient: radial-gradient(circle at 50% 50%, #fff 0%, #f9fff0 100%);
     --blob-opacity: 0.5;
+
+    --header-height: 80px;
 }
 
 [data-theme="dark"] {

@@ -8,6 +8,11 @@
     font-family: "IBM Plex Sans JP", sans-serif;
     font-weight: 400;
     font-style: normal;
+    scrollbar-width: none;
+}
+
+*::-webkit-scrollbar-thumb {
+    display: none;
 }
 
 html, body {
@@ -23,10 +28,80 @@ html, body {
     margin: 0 auto;
 }
 
+/* Loader */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loader.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-copy {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    letter-spacing: 0.1em;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.8s forwards 0.2s;
+}
+
+.loader-line {
+    width: 0;
+    height: 2px;
+    background-color: var(--accent);
+    margin: 0 auto;
+    animation: loadingLine 1.5s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes loadingLine {
+    0% { width: 0; opacity: 0;}
+    5% { opacity: 1;}
+    50% { width: 100px; opacity: 1;}
+    95% { opacity: 1;}
+    100% { width: 0; opacity: 0;}
+}
+
+
 header, main, footer {
     width: 100%;
     position: relative;
     z-index: 10; /* コンテンツを前面に */
+}
+
+header {
+    position: fixed;
+    top: 0;
+    z-index: 40;
+    backdrop-filter: blur(4px);
+}
+
+main {
+    padding-top: var(--header-height);
 }
 
 .background {
@@ -41,41 +116,10 @@ header, main, footer {
     transition: background 0.5s ease;
 }
 
-/* Blob 関連のスタイルは削除しました */
-
-.stars-container {
-    position: fixed;
-    top: 0;
-    left: 0;
+canvas {
+    display: block;
     width: 100%;
     height: 100%;
-    z-index: -5;
-    opacity: 0;
-    transition: opacity 1s ease;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-[data-theme="dark"] .stars-container {
-    opacity: 1;
-}
-
-.star {
-    position: absolute;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.4);
-    animation: twinkle var(--duration) infinite ease-in-out;
-    will-change: transform;
-}
-
-.star-line {
-    position: absolute;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
-    height: 1px;
-    transform-origin: left center;
-    pointer-events: none;
-    will-change: transform;
 }
 
 /* Hero Section */
@@ -102,7 +146,9 @@ header, main, footer {
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 24px;
-    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+    /* background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%); */
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-primary) 100%);
+    filter: contrast();
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     z-index: 9;
@@ -121,20 +167,15 @@ header, main, footer {
     padding: 16px 40px;
     font-size: 18px;
     font-weight: 600;
-    color: white;
+    color: #222;
     background-color: var(--accent);
     border: none;
     border-radius: 40px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 20px rgba(143, 200, 48, 0.3);
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(143, 200, 48, 0.4);
-    background-color: var(--accent);
-    filter: brightness(0.9);
+    background-color: #7ab329;
 }
 
 .theme-toggle {
@@ -154,11 +195,6 @@ header, main, footer {
     color: white;
 }
 
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(143, 200, 48, 0.4);
-    background-color: #7ab329;
-}
 
 .hero-image-container {
     transition: 0.5s all ease;
@@ -201,10 +237,17 @@ header, main, footer {
         justify-content: center;
         text-align: center;
     }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
     
     .hero-image-container {
-        right: -100px;
-        top: 60%;
+        right: calc(50vw - 400px /2);
+        top: 70%;
+        transform: scale(1.4);
         width: 400px;
         height: 400px;
         opacity: 0.4;
@@ -239,7 +282,7 @@ header, main, footer {
 .header-container {
     padding: 0px 10px;
     width: 100%;
-    height: 80px;
+    height: var(--header-height);
     display: flex;
     user-select: none;
     align-items: center;
@@ -260,6 +303,7 @@ header, main, footer {
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .header-container .logo-container span {
@@ -279,11 +323,11 @@ header, main, footer {
     mask-position: center;
     display: inline-block;
     aspect-ratio: 1/1;
-    background-color: #8fc830;
+    background-color: var(--accent);
 }
 
 .header-container .logo-container:hover {
-    background-color: #8fc830;
+    background-color: var(--accent-hover);
 }
 
 .header-container .logo-container:hover > span {
@@ -309,5 +353,5 @@ header, main, footer {
 }
 
 .header-navigation ul li:hover {
-    background: var(--primary);
+    background: var(--accent-hover);
 }
