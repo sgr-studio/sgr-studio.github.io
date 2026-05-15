@@ -243,6 +243,13 @@ canvas {
         flex-direction: column;
         justify-content: center;
     }
+
+    .hero-title {
+        white-space: unset !important;
+        text-align: center;
+        gap: 20px;
+        font-size: 32px;
+    }
     
     .hero-image-container {
         right: calc(50vw - 400px /2);
