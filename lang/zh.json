@@ -27,7 +27,11 @@
         "app4_name": "Art Pulse",
         "app4_desc": "将情感转化为色彩的创意工具。",
         "app5_name": "Daily Quest",
-        "app5_desc": "将日常生活游戏化的任务管理应用。"
+        "app5_desc": "将日常生活游戏化的任务管理应用。",
+        "app6_name": "Cloud Nest",
+        "app6_desc": "安全的去中心化存储。",
+        "app7_name": "Shell Script Hub",
+        "app7_desc": "脚本共享平台。"
     },
     "footer": {
         "theme_dark": "深色模式",

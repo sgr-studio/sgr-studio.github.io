@@ -27,7 +27,11 @@
         "app4_name": "Art Pulse",
         "app4_desc": "感情を色に変えるクリエイティブツール。",
         "app5_name": "Daily Quest",
-        "app5_desc": "日常をゲーム化するタスク管理アプリ。"
+        "app5_desc": "日常をゲーム化するタスク管理アプリ。",
+        "app6_name": "Cloud Nest",
+        "app6_desc": "セキュアな分散型ストレージ。",
+        "app7_name": "Shell Script Hub",
+        "app7_desc": "スクリプト共有プラットフォーム。"
     },
     "footer": {
         "theme_dark": "ダークモード",

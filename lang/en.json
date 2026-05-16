@@ -27,7 +27,11 @@
         "app4_name": "Art Pulse",
         "app4_desc": "A creative tool that transforms emotions into colors.",
         "app5_name": "Daily Quest",
-        "app5_desc": "A task management app that gamifies daily life."
+        "app5_desc": "A task management app that gamifies daily life.",
+        "app6_name": "Cloud Nest",
+        "app6_desc": "Secure decentralized storage.",
+        "app7_name": "Shell Script Hub",
+        "app7_desc": "A platform for sharing scripts."
     },
     "footer": {
         "theme_dark": "Dark Mode",

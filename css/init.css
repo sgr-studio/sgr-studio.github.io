@@ -15,6 +15,10 @@
     display: none;
 }
 
+html {
+    background: var(--primary);
+}
+
 html, body {
     color: var(--text-primary);
     min-height: 100vh;
@@ -267,7 +271,7 @@ canvas {
     justify-content: space-between;
 }
 
-.header-container .logo-container {
+.logo-container {
     display: flex;
     padding: 5px 10px;
     align-items: center;
@@ -277,18 +281,18 @@ canvas {
     perspective: 1000px;
 }
 
-.header-container .logo-container:hover {
+.logo-container:hover {
     background-color: var(--accent-hover);
 }
 
-.header-container .logo-container span {
+.logo-container span {
     font-size: 18px;
     font-family: 'Gotham', sans-serif;
     text-indent: 10px;
     transition: color 0.3s;
 }
 
-.header-container .logo-container .logo {
+.logo-container .logo {
     width: 40px;
     height: 40px;
     mask-image: url(/assets/svg/logo.svg);
@@ -504,7 +508,6 @@ canvas {
 }
 
 .pickup-card:hover {
-    transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     border-color: var(--accent);
 }
@@ -593,6 +596,10 @@ canvas {
     color: var(--accent);
     font-weight: 800;
     text-transform: uppercase;
+}
+
+.all-apps-section {
+    margin-bottom: 60px;
 }
 
 @media (max-width: 768px) {
@@ -805,10 +812,17 @@ footer {
     .lang-current, .theme-current {
         display: none;
     }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
 
 /* Media Queries for Hero */
 @media (max-width: 900px) {
+
     .hero-image-container {
         right: -200px;
         width: 500px;
@@ -831,7 +845,7 @@ footer {
     
     .hero-image-container {
         right: calc(50vw - 200px);
-        top: 70%;
+        top: 50%;
         width: 400px;
         height: 400px;
         opacity: 0.4;

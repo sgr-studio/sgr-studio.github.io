@@ -27,7 +27,11 @@
         "app4_name": "Art Pulse",
         "app4_desc": "감정을 색으로 바꾸는 크리에이티브 툴.",
         "app5_name": "Daily Quest",
-        "app5_desc": "일상의 과업을 게임화하는 할 일 관리 앱."
+        "app5_desc": "일상의 과업을 게임화하는 할 일 관리 앱.",
+        "app6_name": "Cloud Nest",
+        "app6_desc": "안전한 분산형 스토리지.",
+        "app7_name": "Shell Script Hub",
+        "app7_desc": "스크립트 공유 플랫폼。"
     },
     "footer": {
         "theme_dark": "다크 모드",
