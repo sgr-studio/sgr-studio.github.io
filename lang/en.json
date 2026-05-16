@@ -11,6 +11,24 @@
         "description": "Developing various applications.",
         "cta": "View Works"
     },
+    "intro": {
+        "title": "Who we are",
+        "description": "A studio that values intuition over logic to create new experiences.",
+        "pickup_title": "PickUP Creations",
+        "apps_title": "Our Applications"
+    },
+    "apps": {
+        "app1_name": "SGR AI Connect",
+        "app1_desc": "A next-gen connect tool for intuitive AI interaction.",
+        "app2_name": "Code Flow",
+        "app2_desc": "A lightweight editor to maximize development efficiency.",
+        "app3_name": "Fast Sync",
+        "app3_desc": "A utility for ultra-fast cross-device synchronization.",
+        "app4_name": "Art Pulse",
+        "app4_desc": "A creative tool that transforms emotions into colors.",
+        "app5_name": "Daily Quest",
+        "app5_desc": "A task management app that gamifies daily life."
+    },
     "footer": {
         "theme_dark": "Dark Mode",
         "theme_light": "Light Mode"

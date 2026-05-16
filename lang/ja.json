@@ -11,6 +11,24 @@
         "description": "様々なアプリを開発しています。",
         "cta": "作品を見る"
     },
+    "intro": {
+        "title": "Who we are",
+        "description": "理屈よりも直感を大切に、新しい体験を創造するスタジオです。",
+        "pickup_title": "PickUP Creations",
+        "apps_title": "Our Applications"
+    },
+    "apps": {
+        "app1_name": "SGR AI Connect",
+        "app1_desc": "直感的な操作でAIと対話できる次世代コネクトツール。",
+        "app2_name": "Code Flow",
+        "app2_desc": "開発効率を最大化する軽量エディタ。",
+        "app3_name": "Fast Sync",
+        "app3_desc": "デバイス間を超高速で同期するユーティリティ。",
+        "app4_name": "Art Pulse",
+        "app4_desc": "感情を色に変えるクリエイティブツール。",
+        "app5_name": "Daily Quest",
+        "app5_desc": "日常をゲーム化するタスク管理アプリ。"
+    },
     "footer": {
         "theme_dark": "ダークモード",
         "theme_light": "ライトモード"

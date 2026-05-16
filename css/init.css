@@ -443,6 +443,167 @@ canvas {
     display: none;
 }
 
+/* Introduce Section */
+.introduce {
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.intro-profile {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-title {
+    font-size: clamp(32px, 5vw, 48px);
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.section-desc {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.sub-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sub-title::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: var(--accent);
+}
+
+/* PickUP card */
+.pickup-grid {
+    display: grid;
+    gap: 30px;
+}
+
+.pickup-card {
+    background: rgba(var(--primary-rgb, 255, 255, 255), 0.05);
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    min-height: 300px;
+    border: 1px solid rgba(128, 128, 128, 0.1);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.pickup-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent);
+}
+
+.card-image {
+    flex: 1;
+    min-width: 40%;
+}
+
+.card-content {
+    flex: 1.2;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+
+.tag {
+    background: var(--accent);
+    color: #222;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 800;
+    width: fit-content;
+    text-transform: uppercase;
+}
+
+/* Apps grid */
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.app-item {
+    background: rgba(128, 128, 128, 0.05);
+    padding: 25px;
+    border-radius: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+    position: relative;
+}
+
+.app-item:hover {
+    background: rgba(var(--accent-rgb, 143, 200, 48), 0.1);
+    border-color: var(--accent);
+    transform: scale(1.02);
+}
+
+.app-icon {
+    font-size: 32px;
+    color: var(--accent);
+    background: rgba(var(--accent-rgb, 143, 200, 48), 0.1);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+}
+
+.app-info h4 {
+    margin-bottom: 5px;
+}
+
+.app-info p {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.recommend {
+    background: rgba(var(--accent-rgb, 143, 200, 48), 0.05);
+    border: 1px solid rgba(var(--accent-rgb, 143, 200, 48), 0.2);
+}
+
+.recommend-tag {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 10px;
+    color: var(--accent);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .pickup-card {
+        flex-direction: column;
+    }
+    .card-image {
+        height: 200px;
+    }
+}
+
 /* Footer Styling */
 footer {
     padding: 60px 0 40px;
@@ -490,14 +651,14 @@ footer {
 .social-links a {
     font-size: 22px;
     color: var(--text-primary);
-    transition: all 0.3s;
+    transition: all 0.3s ease;
     opacity: 0.6;
 }
 
 .social-links a:hover {
     color: var(--accent);
     opacity: 1;
-    transform: translateY(-3px);
+    transform: scale(1.2);
 }
 
 /* Theme Dropdown in Footer (Override positioning to open upwards if needed, or keep standard if enough space) */

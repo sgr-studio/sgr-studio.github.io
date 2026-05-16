@@ -11,6 +11,24 @@
         "description": "다양한 앱을 개발하고 있습니다.",
         "cta": "작품 보기"
     },
+    "intro": {
+        "title": "소개",
+        "description": "이론보다 직관을 소중히 여기며, 새로운 경험을 창조하는 스튜디오입니다.",
+        "pickup_title": "주요 작품",
+        "apps_title": "애플리케이션 목록"
+    },
+    "apps": {
+        "app1_name": "SGR AI Connect",
+        "app1_desc": "직관적인 조작으로 AI와 대화할 수 있는 차세대 커넥트 툴.",
+        "app2_name": "Code Flow",
+        "app2_desc": "개발 효율을 극대화하는 경량 에디터.",
+        "app3_name": "Fast Sync",
+        "app3_desc": "기기 간 초고속 동기화를 지원하는 유틸리티.",
+        "app4_name": "Art Pulse",
+        "app4_desc": "감정을 색으로 바꾸는 크리에이티브 툴.",
+        "app5_name": "Daily Quest",
+        "app5_desc": "일상의 과업을 게임화하는 할 일 관리 앱."
+    },
     "footer": {
         "theme_dark": "다크 모드",
         "theme_light": "라이트 모드"
