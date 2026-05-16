@@ -141,55 +141,14 @@ function animate() {
     renderer.render(scene, camera);
 }
 
-// --- Theme Logic ---
-function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    themeToggle.textContent = newTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
-    localStorage.setItem('theme', newTheme);
-}
-
-// Handle Resize
-window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-});
-
-// Initial state
-const savedTheme = localStorage.getItem('theme') || 'light';
-document.documentElement.setAttribute('data-theme', savedTheme);
-if (themeToggle) {
-    themeToggle.textContent = savedTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
-    themeToggle.addEventListener('click', toggleTheme);
-}
-
-// 丸い星のためのテクスチャ作成
-function createCircleTexture() {
-    const canvas = document.createElement('canvas');
-    canvas.width = 64;
-    canvas.height = 64;
-    const ctx = canvas.getContext('2d');
-    const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-    gradient.addColorStop(0, 'rgba(255,255,255,1)');
-    gradient.addColorStop(0.2, 'rgba(255,255,255,0.8)');
-    gradient.addColorStop(0.5, 'rgba(255,255,255,0.2)');
-    gradient.addColorStop(1, 'rgba(255,255,255,0)');
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, 64, 64);
-    
-    const texture = new THREE.CanvasTexture(canvas);
-    return texture;
-}
-
 // Internationalization (i18n)
 let currentLang = localStorage.getItem('lang') || 'ja';
+let translations = null;
 
 async function setLanguage(lang) {
     try {
         const response = await fetch(`lang/${lang}.json`);
-        const translations = await response.json();
+        translations = await response.json();
         
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
@@ -211,14 +170,67 @@ async function setLanguage(lang) {
         localStorage.setItem('lang', lang);
         document.documentElement.lang = lang;
         
-        // Update theme toggle text if translated
-        if (themeToggle) {
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            themeToggle.textContent = isDark ? (translations.footer.theme_light || 'Light Mode') : (translations.footer.theme_dark || 'Dark Mode');
+        // Update language label in dropdown
+        const langLabel = document.getElementById('current-lang-label');
+        if (langLabel) {
+            const labels = { 'ja': 'JP', 'en': 'EN', 'zh': 'ZH', 'ko': 'KO' };
+            langLabel.textContent = labels[lang] || lang.toUpperCase();
         }
+        
+        // Update theme toggle text
+        updateThemeToggleText();
     } catch (e) {
         console.error('Failed to load language file:', e);
     }
+}
+
+function updateThemeToggleText() {
+    if (!themeToggle || !translations) return;
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    themeToggle.textContent = isDark ? 
+        (translations.footer.theme_light || 'Light Mode') : 
+        (translations.footer.theme_dark || 'Dark Mode');
+}
+
+// --- Theme Logic ---
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeToggleText();
+}
+
+// Handle Resize
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// Initial state
+const savedTheme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', savedTheme);
+if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+}
+
+// 丸い星のためのテクスチャ作成
+function createCircleTexture() {
+    const canvas = document.createElement('canvas');
+    canvas.width = 64;
+    canvas.height = 64;
+    const ctx = canvas.getContext('2d');
+    const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+    gradient.addColorStop(0, 'rgba(255,255,255,1)');
+    gradient.addColorStop(0.2, 'rgba(255,255,255,0.8)');
+    gradient.addColorStop(0.5, 'rgba(255,255,255,0.2)');
+    gradient.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, 64, 64);
+    
+    const texture = new THREE.CanvasTexture(canvas);
+    return texture;
 }
 
 // Hamburger Menu Toggle

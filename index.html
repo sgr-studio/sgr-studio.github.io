@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/root.css">
     <link rel="stylesheet" href="css/init.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>SGR STUDIO</title>
 </head>
 <body>
@@ -36,11 +37,18 @@
                         <li data-i18n="nav.works" data-desc="Our creations">WORKS</li>
                         <li data-i18n="nav.contact" data-desc="Get in touch">CONTACT</li>
                     </ul>
-                    <div class="lang-selector">
-                        <span onclick="setLanguage('ja')">JP</span>
-                        <span onclick="setLanguage('en')">EN</span>
-                        <span onclick="setLanguage('zh')">ZH</span>
-                        <span onclick="setLanguage('ko')">KO</span>
+                    <div class="lang-dropdown">
+                        <div class="lang-current">
+                            <i class='bx bx-globe'></i>
+                            <span id="current-lang-label">JP</span>
+                            <i class='bx bx-chevron-down'></i>
+                        </div>
+                        <div class="lang-options">
+                            <div onclick="setLanguage('ja')">日本語</div>
+                            <div onclick="setLanguage('en')">English</div>
+                            <div onclick="setLanguage('zh')">简体中文</div>
+                            <div onclick="setLanguage('ko')">한국어</div>
+                        </div>
                     </div>
                 </div>
                 
