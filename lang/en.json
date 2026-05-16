@@ -18,6 +18,42 @@
         "recommend_title": "RECOMMENDED",
         "apps_title": "Our Applications"
     },
+    "about": {
+        "hero_desc": "A studio that values intuition over logic to create new experiences.",
+        "members_title": "Members",
+        "owner_label": "Owner",
+        "member_label": "Member",
+        "vision_title": "Goal",
+        "vision_text": "We pursue pure creative desire. Our goal is to create something that leaves a lasting impression.",
+        "philosophy_title": "Philosophy",
+        "philosophy_text": "Never forgetting beauty, functionality, and playfulness. We value enjoying the development process itself and infusing that energy into our products."
+    },
+    "blog": {
+        "hero_desc": "Recording our daily development and challenges with new technologies.",
+        "recent_posts": "Recent Posts",
+        "post1_date": "2026.05.15",
+        "post1_title": "Starting a New Project",
+        "post1_desc": "We've started developing with the goal of creating a next-generation community app.",
+        "post2_date": "2026.05.01",
+        "post2_title": "Refreshing the Design System",
+        "post2_desc": "Redesigned UI components to provide a more consistent user experience.",
+        "post3_date": "2025.12.18",
+        "post3_title": "Behind the Scenes of Custom OS Development",
+        "post3_desc": "Concept and development of PeacOS"
+    },
+    "works": {
+        "hero_desc": "Introducing some of the apps and software we've created.",
+        "section_title": "Creations"
+    },
+    "contact": {
+        "hero_desc": "Please contact us for project inquiries or collaboration proposals.",
+        "get_in_touch_title": "Get in Touch",
+        "get_in_touch_desc": "Feel free to reach out via SNS or GitHub.",
+        "github_name": "GitHub",
+        "github_desc": "Development code and projects",
+        "youtube_name": "YouTube",
+        "youtube_desc": "Production process and demo videos"
+    },
     "apps": {
         "app1_name": "SYCS",
         "app1_desc": "Interactive community app under development.",

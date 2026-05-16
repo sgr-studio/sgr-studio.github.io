@@ -18,21 +18,57 @@
         "recommend_title": "推荐",
         "apps_title": "我们的应用"
     },
+    "about": {
+        "hero_desc": "一个比起理论更重视直觉、致力于创造全新体验的工作室。",
+        "members_title": "成员",
+        "owner_label": "所有者",
+        "member_label": "成员",
+        "vision_title": "目标",
+        "vision_text": "我们追求纯粹的创作欲望。我们的目标是创造出能给人留下深刻印象的作品。",
+        "philosophy_title": "理念",
+        "philosophy_text": "不忘美观、功能性和趣味性。我们重视享受开发过程本身，并将这份热情注入到我们的产品中。"
+    },
+    "blog": {
+        "hero_desc": "记录我们的日常开发以及对新技术的挑战。",
+        "recent_posts": "最新文章",
+        "post1_date": "2026.05.15",
+        "post1_title": "启动新项目",
+        "post1_desc": "我们已开始开发旨在创建下一代社区应用的项目。",
+        "post2_date": "2026.05.01",
+        "post2_title": "刷新设计系统",
+        "post2_desc": "重新设计了 UI 组件，以提供更一致的用户体验。",
+        "post3_date": "2025.12.18",
+        "post3_title": "自制操作系统开发的幕后",
+        "post3_desc": "PeacOS 的构思与开发"
+    },
+    "works": {
+        "hero_desc": "介绍我们制作的部分应用和软件。",
+        "section_title": "作品列表"
+    },
+    "contact": {
+        "hero_desc": "有关项目咨询或合作建议，请联系我们。",
+        "get_in_touch_title": "联系我们",
+        "get_in_touch_desc": "欢迎通过社交媒体或 GitHub 与我们联系。",
+        "github_name": "GitHub",
+        "github_desc": "开发中的代码和项目",
+        "youtube_name": "YouTube",
+        "youtube_desc": "制作过程和演示视频"
+    },
     "apps": {
         "app1_name": "SYCS",
-        "app1_desc": "正在开发的互动社区应用。",
+        "app1_desc": "正在开发的互动社区应用",
         "app2_name": "Fleeturbo",
         "app2_desc": "正在开发的视频编辑软件。",
         "app3_name": "Werewolf-Death",
-        "app3_desc": "正在开发的狼人杀游戏应用。",
+        "app3_desc": "正在开发的狼人杀游戏应用",
         "app4_name": "Kiwitter",
-        "app4_desc": "Twitter 仿制应用。",
+        "app4_desc": "Twitter 仿制应用",
         "app5_name": "PeacOS",
-        "app5_desc": "正在开发的自制操作系统。",
+        "app5_desc": "正在开发的自制操作系统",
         "app6_name": "notPort",
-        "app6_desc": "已停止开发的匿名留言板应用。",
+        "app6_desc": "已停止开发的匿名留言板应用",
         "app7_name": "2sCode",
-        "app7_desc": "正在开发的简单文本编辑器。"
+        "app7_desc": "正在开发的简单文本编辑器"
     },
     "footer": {
         "theme_dark": "深色模式",

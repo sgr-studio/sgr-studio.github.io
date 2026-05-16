@@ -18,21 +18,57 @@
         "recommend_title": "추천",
         "apps_title": "애플리케이션 목록"
     },
+    "about": {
+        "hero_desc": "이론보다 직관을 소중히 여기며, 새로운 경험을 창조하는 스튜디오입니다.",
+        "members_title": "멤버",
+        "owner_label": "오너",
+        "member_label": "멤버",
+        "vision_title": "목표",
+        "vision_text": "순수한 창작 의욕을 추구하고 있습니다. 조금이라도 눈에 띌 수 있는 형태로 만드는 것이 목표입니다.",
+        "philosophy_title": "이념",
+        "philosophy_text": "아름다움, 기능성, 놀이 정신을 잊지 않는 것. 개발 프로세스 자체를 즐기고, 그 열정을 제품에 담는 것을 소중히 여깁니다."
+    },
+    "blog": {
+        "hero_desc": "나날의 개발 기록과 새로운 기술에 대한 도전을 기록합니다.",
+        "recent_posts": "최근 포스트",
+        "post1_date": "2026.05.15",
+        "post1_title": "새로운 프로젝트 시작",
+        "post1_desc": "차세대 커뮤니티 앱을 목표로 개발을 시작했습니다.",
+        "post2_date": "2026.05.01",
+        "post2_title": "디자인 시스템 쇄신",
+        "post2_desc": "보다 일관된 사용자 경험을 제공하기 위해 UI 컴포넌트를 재설계했습니다.",
+        "post3_date": "2025.12.18",
+        "post3_title": "자작 OS 개발 뒷이야기",
+        "post3_desc": "PeacOS의 구상과 개발"
+    },
+    "works": {
+        "hero_desc": "지금까지 제작한 앱과 소프트웨어의 일부를 소개합니다.",
+        "section_title": "작품 목록"
+    },
+    "contact": {
+        "hero_desc": "프로젝트 관련 문의나 협업 제안은 이쪽으로 부탁드립니다.",
+        "get_in_touch_title": "문의하기",
+        "get_in_touch_desc": "SNS나 GitHub를 통해 편하게 연락주세요.",
+        "github_name": "GitHub",
+        "github_desc": "개발 중인 코드와 프로젝트",
+        "youtube_name": "YouTube",
+        "youtube_desc": "제작 과정 및 데모 영상"
+    },
     "apps": {
         "app1_name": "SYCS",
-        "app1_desc": "개발 중인 대화 커뮤니티 앱.",
+        "app1_desc": "개발 중인 대화 커뮤니티 앱",
         "app2_name": "Fleeturbo",
         "app2_desc": "개발 중인 동영상 편집 소프트웨어.",
         "app3_name": "Werewolf-Death",
-        "app3_desc": "개발 중인 인랑 게임 앱.",
+        "app3_desc": "개발 중인 인랑 게임 앱",
         "app4_name": "Kiwitter",
-        "app4_desc": "트위터 클론 앱.",
+        "app4_desc": "트위터 클론 앱",
         "app5_name": "PeacOS",
-        "app5_desc": "개발 중인 자작 OS.",
+        "app5_desc": "개발 중인 자작 OS",
         "app6_name": "notPort",
-        "app6_desc": "개발 종료된 익명 게시판 앱.",
+        "app6_desc": "개발 종료된 익명 게시판 앱",
         "app7_name": "2sCode",
-        "app7_desc": "개발 중인 심플한 텍스트 에디터."
+        "app7_desc": "개발 중인 심플한 텍스트 에디터"
     },
     "footer": {
         "theme_dark": "다크 모드",

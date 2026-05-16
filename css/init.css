@@ -529,6 +529,9 @@ canvas {
 .card-image {
     flex: 1;
     min-width: 40%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 .card-content {

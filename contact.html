@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/root.css">
     <link rel="stylesheet" href="css/init.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>SGR STUDIO</title>
+    <title>Contact - SGR STUDIO</title>
 </head>
 <body>
     <div id="loader" class="loader">
@@ -65,11 +65,8 @@
         <div class="container">
             <section class="hero">
                 <div class="hero-content">
-                    <h1 class="hero-title" data-i18n="hero.title">理屈より、創作欲を。</h1>
-                    <p class="hero-description" data-i18n="hero.description">様々なアプリを開発しています。</p>
-                    <div class="hero-cta">
-                        <button class="btn-primary" data-i18n="hero.cta">View Works</button>
-                    </div>
+                    <h1 class="hero-title" data-i18n="nav.contact">CONTACT</h1>
+                    <p class="hero-description" data-i18n="contact.hero_desc">プロジェクトに関するお問い合わせや、コラボレーションのご提案はこちらから。</p>
                 </div>
                 <div class="hero-image-container">
                     <div class="hero-image-blob"></div>
@@ -78,90 +75,24 @@
         </div>
         <div class="container introduce">
             <div class="intro-profile">
-                <h2 class="section-title" data-i18n="intro.title">Who we are</h2>
-                <p class="section-desc" data-i18n="intro.description">理屈よりも直感を大切に、新しい体験を創造するスタジオです。</p>
-            </div>
-
-            <div class="pickup-section">
-                <h3 class="sub-title" data-i18n="intro.pickup_title">PickUP Creations</h3>
-                <div class="pickup-grid">
-                    <div class="pickup-card">
-                        <div class="card-image" style="background: linear-gradient(135deg, #8fc830 0%, #22c55e 100%);">
-                            <img src="https://raw.githubusercontent.com/SuchGameR/sycs-Vue/refs/heads/About/Logo.svg" alt="SYCS" class="logo-sycs">
-                            <!-- 急遽入れました : 修正はしないかも... -->
-                            <style>
-                                .logo-sycs {
-                                    width: 60px;
-                                }
-                            </style>
-                        </div>
-                        <div class="card-content">
-                            <div class="tag-list">
-                                <span class="tag">Featured</span>
-                                <span class="tag-dev">Development</span>
-                                <span class="tag-dev">Co-op</span>
-                            </div>
-                            <h3 data-i18n="apps.app1_name"></h3>
-                            <p data-i18n="apps.app1_desc"></p>
-                            <button class="btn-primary" style="padding: 10px 25px; font-size: 14px;" data-i18n="hero.cta" onclick="move('https://github.com/SuchGameR/sycs-Vue/tree/About')">View Works</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="recommend-section">
-                <h3 class="sub-title" data-i18n="intro.recommend_title"></h3>
-                <div class="apps-grid">
-                    <div class="app-item recommend">
-                        <span class="recommend-tag">Recommended</span>
-                        <div class="app-icon"><i class='bx bx-code-alt'></i></div>
+                <h2 class="section-title" data-i18n="contact.get_in_touch_title">Get in Touch</h2>
+                <p class="section-desc" data-i18n="contact.get_in_touch_desc">SNSやGitHubを通じてお気軽にご連絡ください。</p>
+                
+                <div class="apps-grid" style="margin-top: 40px; justify-content: center;">
+                    <a href="https://github.com/sgr-studio/" target="_blank" class="app-item" style="text-decoration: none; color: inherit;">
+                        <div class="app-icon"><i class='bx bxl-github'></i></div>
                         <div class="app-info">
-                            <h4 data-i18n="apps.app2_name"></h4>
-                            <p data-i18n="apps.app2_desc"></p>
+                            <h4 data-i18n="contact.github_name">GitHub</h4>
+                            <p data-i18n="contact.github_desc">開発中のコードやプロジェクト</p>
                         </div>
-                    </div>
-                    <div class="app-item recommend">
-                        <span class="recommend-tag">Recommended</span>
-                        <div class="app-icon"><i class='bx bx-sync'></i></div>
+                    </a>
+                    <a href="https://www.youtube.com/@SGR-STUDIO-OFFICIAL" target="_blank" class="app-item" style="text-decoration: none; color: inherit;">
+                        <div class="app-icon"><i class='bx bxl-youtube'></i></div>
                         <div class="app-info">
-                            <h4 data-i18n="apps.app3_name"></h4>
-                            <p data-i18n="apps.app3_desc"></p>
+                            <h4 data-i18n="contact.youtube_name">YouTube</h4>
+                            <p data-i18n="contact.youtube_desc">制作過程やデモ動画</p>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="all-apps-section">
-                <h3 class="sub-title" data-i18n="intro.apps_title"></h3>
-                <div class="apps-grid">
-                    <div class="app-item">
-                        <div class="app-icon"><i class='bx bx-palette'></i></div>
-                        <div class="app-info">
-                            <h4 data-i18n="apps.app4_name"></h4>
-                            <p data-i18n="apps.app4_desc"></p>
-                        </div>
-                    </div>
-                    <div class="app-item">
-                        <div class="app-icon"><i class='bx bx-task'></i></div>
-                        <div class="app-info">
-                            <h4 data-i18n="apps.app5_name"></h4>
-                            <p data-i18n="apps.app5_desc"></p>
-                        </div>
-                    </div>
-                    <div class="app-item">
-                        <div class="app-icon"><i class='bx bx-cloud'></i></div>
-                        <div class="app-info">
-                            <h4 data-i18n="apps.app6_name"></h4>
-                            <p data-i18n="apps.app6_desc"></p>
-                        </div>
-                    </div>
-                    <div class="app-item">
-                        <div class="app-icon"><i class='bx bx-terminal'></i></div>
-                        <div class="app-info">
-                            <h4 data-i18n="apps.app7_name"></h4>
-                            <p data-i18n="apps.app7_desc"></p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

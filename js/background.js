@@ -40,8 +40,9 @@ async function initLoader() {
 
         // 2. 特定の日（記念日）のチェック
         if (!displayMessage && data.special_days) {
-            const special = data.special_days.find(d => d.date === mmdd);
-            if (special) {
+            const specials = data.special_days.filter(d => d.date === mmdd);
+            if (specials.length > 0) {
+                const special = specials[Math.floor(Math.random() * specials.length)];
                 displayMessage = special.message;
                 displaySubtitle = special.subtitle;
             }

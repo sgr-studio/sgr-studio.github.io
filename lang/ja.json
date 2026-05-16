@@ -18,6 +18,42 @@
         "recommend_title": "オススメ",
         "apps_title": "アプリの一覧"
     },
+    "about": {
+        "hero_desc": "理屈よりも直感を大切に、新しい体験を創造するスタジオです。",
+        "members_title": "メンバー",
+        "owner_label": "オーナー",
+        "member_label": "メンバー",
+        "vision_title": "目標",
+        "vision_text": "純粋な創作意欲を追求しています。少しでも目に残せるような形にしたいのが目標です。",
+        "philosophy_title": "理念",
+        "philosophy_text": "美しさ、機能性、遊び心を忘れないこと。開発のプロセスそのものを楽しみ、その熱量をプロダクトに込めることを大切にしています。"
+    },
+    "blog": {
+        "hero_desc": "日々の開発記録や、新しい技術への挑戦について綴ります。",
+        "recent_posts": "最新の記事",
+        "post1_date": "2026.05.15",
+        "post1_title": "新しいプロジェクトの始動",
+        "post1_desc": "次世代のコミュニティアプリを目指し、開発をスタートしました。",
+        "post2_date": "2026.05.01",
+        "post2_title": "デザインシステムの刷新",
+        "post2_desc": "より一貫性のあるユーザー体験を提供するため、UIコンポーネントを再設計しました。",
+        "post3_date": "2025.12.18",
+        "post3_title": "自作OS開発の裏側",
+        "post3_desc": "PeacOSの構想と開発"
+    },
+    "works": {
+        "hero_desc": "これまでに制作したアプリやソフトウェアの一部をご紹介します。",
+        "section_title": "制作物一覧"
+    },
+    "contact": {
+        "hero_desc": "プロジェクトに関するお問い合わせや、コラボレーションのご提案はこちらから。",
+        "get_in_touch_title": "お問い合わせ",
+        "get_in_touch_desc": "SNSやGitHubを通じてお気軽にご連絡ください。",
+        "github_name": "GitHub",
+        "github_desc": "開発中のコードやプロジェクト",
+        "youtube_name": "YouTube",
+        "youtube_desc": "制作過程やデモ動画"
+    },
     "apps": {
         "app1_name": "SYCS",
         "app1_desc": "開発中の対話コミュニティアプリ",
