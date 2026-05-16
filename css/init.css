@@ -582,6 +582,7 @@ canvas {
     transition: all 0.3s;
     border: 1px solid transparent;
     position: relative;
+    cursor: pointer;
 }
 
 .app-item:hover {
