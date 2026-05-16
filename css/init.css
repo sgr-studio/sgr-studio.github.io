@@ -247,16 +247,16 @@ canvas {
 }
 
 .hamburger.active span:nth-child(1) {
-    transform: translateY(6px) rotate(45deg);
+    transform: translateY(5px) rotate(45deg);
 }
 
 .hamburger.active span:nth-child(2) {
     opacity: 0;
-    transform: translateX(-10px);
+    transform: translateX(-15px);
 }
 
 .hamburger.active span:nth-child(3) {
-    transform: translateY(-6px) rotate(-45deg);
+    transform: translateY(-5px) rotate(-45deg);
 }
 
 /* Header Container Layout */
@@ -572,6 +572,7 @@ canvas {
     align-items: center;
     justify-content: center;
     border-radius: 16px;
+    aspect-ratio: 1/1;
 }
 
 .app-info h4 {
@@ -697,10 +698,22 @@ footer {
     }
 }
 
+@keyframes hamburgerAnimation {
+    0% {
+        opacity: 0;
+        transform: rotate(90deg) scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+}
+
 /* Mobile & Full Screen Menu styles */
 @media (max-width: 600px) {
     .hamburger {
         display: flex;
+        animation: hamburgerAnimation forwards 0.3s;
     }
 
     .header-navigation {
@@ -783,6 +796,97 @@ footer {
     .header-navigation.active .lang-dropdown, .header-navigation.active .theme-dropdown {
         opacity: 1;
         transform: translateY(0);
+    }
+
+    /* Footer overrides for mobile to keep dropdowns visible */
+    footer .lang-dropdown, footer .theme-dropdown {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        margin-top: 0;
+        width: auto;
+    }
+
+    footer .lang-current, footer .theme-current {
+        display: flex !important;
+    }
+
+    footer .theme-current, footer .lang-current {
+        display: flex !important;
+        background: rgba(128, 128, 128, 0.1) !important;
+        border: 1px solid transparent !important;
+        padding: 8px 14px !important;
+        border-radius: 20px !important;
+    }
+
+    footer .theme-dropdown:hover .theme-current, footer .lang-dropdown:hover .lang-current {
+        border-color: var(--accent) !important;
+        background: rgba(128, 128, 128, 0.15) !important;
+    }
+
+    footer .theme-current i, footer .theme-current span,
+    footer .lang-current i, footer .lang-current span {
+        color: var(--text-primary) !important;
+    }
+
+    /* Hide theme options but keep lang options for mobile */
+    footer .theme-options {
+        display: none !important;
+    }
+
+    footer .lang-options {
+        display: block !important;
+        position: absolute !important;
+        bottom: 100% !important;
+        top: auto !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transform: translateY(15px) !important;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+        background: var(--primary) !important;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
+        border: 1px solid rgba(128, 128, 128, 0.1) !important;
+        z-index: 100 !important;
+        margin-bottom: 12px !important;
+        margin-top: 0 !important;
+    }
+
+    footer .lang-dropdown:hover .lang-options {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+    }
+
+    footer .theme-current #theme-chevron {
+        display: none !important; /* Hide chevron for toggle functionality */
+    }
+
+    footer .lang-current i.bx-chevron-down {
+        display: block !important;
+        opacity: 0.5 !important;
+    }
+
+    [data-theme="dark"] footer .theme-options,
+    [data-theme="dark"] footer .lang-options {
+        background: #151a0d !important;
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    footer .theme-options div, footer .lang-options div {
+        padding: 12px 20px !important;
+        border: none !important;
+        border-radius: 0 !important;
+        color: var(--text-primary) !important;
+        justify-content: flex-start !important;
+        min-width: 150px !important;
+        font-size: 14px !important;
+        background: none !important;
+    }
+
+    footer .theme-options div:hover, footer .lang-options div:hover {
+        background: var(--accent) !important;
+        color: white !important;
     }
 
     .lang-options, .theme-options {

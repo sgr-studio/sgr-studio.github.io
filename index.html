@@ -97,7 +97,7 @@
             </div>
 
             <div class="recommend-section">
-                <h3 class="sub-title">RECOMMENDED</h3>
+                <h3 class="sub-title" data-i18n="intro.recommend_title">RECOMMENDED</h3>
                 <div class="apps-grid">
                     <div class="app-item recommend">
                         <span class="recommend-tag">Recommended</span>
@@ -171,10 +171,10 @@
                     </div>
                     
                     <div class="theme-dropdown">
-                        <div class="theme-current">
+                        <div class="theme-current" onclick="toggleTheme()">
                             <i id="theme-icon-active" class='bx bx-sun'></i>
                             <span id="current-theme-label">Light</span>
-                            <i class='bx bx-chevron-down'></i>
+                            <i class='bx bx-chevron-down' id="theme-chevron"></i>
                         </div>
                         <div class="theme-options">
                             <div onclick="setTheme('light')"><i class='bx bx-sun'></i> Light</div>
