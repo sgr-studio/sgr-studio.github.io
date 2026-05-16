@@ -15,9 +15,54 @@ const MAX_DISTANCE = 200;
 async function initLoader() {
     try {
         const response = await fetch('catchcopy.json');
-        const copies = await response.json();
-        const randomCopy = copies[Math.floor(Math.random() * copies.length)];
-        if (loaderCopy) loaderCopy.textContent = randomCopy;
+        const data = await response.json();
+        
+        const now = new Date();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        const mmdd = `${month}-${day}`;
+        
+        let displayMessage = "";
+        let displaySubtitle = "";
+        let currentEventTheme = "";
+
+        // 1. ビッグイベント（期間指定）のチェック
+        if (data.seasonal_events) {
+            for (const event of data.seasonal_events) {
+                if (mmdd >= event.start && mmdd <= event.end) {
+                    displayMessage = event.message;
+                    displaySubtitle = event.subtitle;
+                    currentEventTheme = event.theme;
+                    break;
+                }
+            }
+        }
+
+        // 2. 特定の日（記念日）のチェック
+        if (!displayMessage && data.special_days) {
+            const special = data.special_days.find(d => d.date === mmdd);
+            if (special) {
+                displayMessage = special.message;
+                displaySubtitle = special.subtitle;
+            }
+        }
+
+        // 3. デフォルト（ランダム）
+        if (!displayMessage) {
+            const randomEntry = data.defaults[Math.floor(Math.random() * data.defaults.length)];
+            displayMessage = randomEntry.message;
+            displaySubtitle = randomEntry.subtitle;
+        }
+
+        if (loaderCopy) loaderCopy.textContent = displayMessage;
+        const loaderSubtitle = document.getElementById('loader-subtitle');
+        if (loaderSubtitle) loaderSubtitle.textContent = displaySubtitle;
+        
+        // イベントテーマがあればbodyにクラス付与
+        if (currentEventTheme) {
+            document.body.classList.add(`theme-event-${currentEventTheme}`);
+        }
+
     } catch (e) {
         console.error('Failed to load catchcopies:', e);
         if (loaderCopy) loaderCopy.textContent = '理屈より、創作欲を。';
@@ -133,10 +178,18 @@ function animate() {
     
     starLines.geometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
 
-    // Theme visibility
+    // Theme visibility and color follow
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    stars.material.opacity = isDark ? 0.8 : 0.0;
-    starLines.material.opacity = isDark ? 0.15 : 0.0;
+    const accentColor = getComputedStyle(document.body).getPropertyValue('--accent').trim();
+    
+    if (stars && stars.material) {
+        stars.material.opacity = isDark ? 0.8 : 0.0;
+        if (accentColor) stars.material.color.set(accentColor);
+    }
+    if (starLines && starLines.material) {
+        starLines.material.opacity = isDark ? 0.15 : 0.0;
+        if (accentColor) starLines.material.color.set(accentColor);
+    }
 
     renderer.render(scene, camera);
 }

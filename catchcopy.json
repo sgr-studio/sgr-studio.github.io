@@ -1,10 +1,22 @@
-[
-    "理屈より、創作欲を。",
-    "想像を、カタチにする力。",
-    "デジタルに、体温を宿す。",
-    "コードで描く、新しい世界。",
-    "シンプル、かつダイナミックに。",
-    "遊び心が、未来を創る。",
-    "境界のない、クリエイティブを。",
-    "あなたのアイデアに、翼を。"
-]
+{
+    "special_days": [
+        { "date": "05-10", "name": "メイドの日", "message": "ご主人様、お帰りなさいませ。", "subtitle": "May 10th - Maid Day" },
+        { "date": "02-22", "name": "猫の日", "message": "にゃんにゃんにゃん、今日は猫の日。", "subtitle": "Feb 22nd - Cat Day" },
+        { "date": "11-11", "name": "ポッキーの日", "message": "シェアハピ、11月11日。", "subtitle": "Nov 11th - Pocky & Pretz Day" },
+        { "date": "07-07", "name": "七夕", "message": "星に願いを。今日は七夕です。", "subtitle": "July 7th - Tanabata Festival" },
+        { "date": "08-11", "name": "山の日", "message": "山に親しみ、山の恩恵に感謝する日。", "subtitle": "Aug 11th - Mountain Day" },
+        { "date": "03-03", "name": "ひな祭り", "message": "健やかな成長を祈って。ひな祭り。", "subtitle": "Mar 3rd - Doll's Festival" }
+    ],
+    "seasonal_events": [
+        { "start": "01-01", "end": "01-03", "theme": "new-year", "message": "謹賀新年。本年もよろしくお願いします。", "subtitle": "New Year's Greetings 2026" },
+        { "start": "10-25", "end": "10-31", "theme": "halloween", "message": "トリック・オア・トリート！", "subtitle": "Happy Halloween Season" },
+        { "start": "12-20", "end": "12-25", "theme": "christmas", "message": "メリークリスマス！世界中に光が灯りますように。", "subtitle": "Merry Christmas & Holy Night" }
+    ],
+    "defaults": [
+        { "message": "理屈より、創作欲を。", "subtitle": "Creativity over logic." },
+        { "message": "想像を、カタチにする力。", "subtitle": "The power to shape imagination." },
+        { "message": "デジタルに、体温を宿す。", "subtitle": "Infusing digital with warmth." },
+        { "message": "コードで描く、新しい世界。", "subtitle": "A new world drawn with code." },
+        { "message": "遊び心が、未来を創る。", "subtitle": "Playfulness creates the future." }
+    ]
+}

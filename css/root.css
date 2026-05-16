@@ -10,6 +10,34 @@
     --header-height: 80px;
 }
 
+/* Seasonal Themes Override */
+body.theme-event-christmas {
+    --accent: #ff4d4d;
+    --bg-gradient: radial-gradient(circle at 50% 50%, #fff 0%, #fff0f0 100%);
+}
+html[data-theme="dark"] body.theme-event-christmas {
+    --accent: #ff4d4d;
+    --bg-gradient: radial-gradient(circle at 50% 50%, #1a0505 0%, #050000 100%);
+}
+
+body.theme-event-halloween {
+    --accent: #ff9800;
+    --bg-gradient: radial-gradient(circle at 50% 50%, #fff 0%, #fff7e6 100%);
+}
+html[data-theme="dark"] body.theme-event-halloween {
+    --accent: #ff9800;
+    --bg-gradient: radial-gradient(circle at 50% 50%, #1a1000 0%, #0a0500 100%);
+}
+
+body.theme-event-new-year {
+    --accent: #ffd700;
+    --bg-gradient: radial-gradient(circle at 50% 50%, #fff 0%, #fffdee 100%);
+}
+html[data-theme="dark"] body.theme-event-new-year {
+    --accent: #ffd700;
+    --bg-gradient: radial-gradient(circle at 50% 50%, #1a1500 0%, #0a0500 100%);
+}
+
 [data-theme="dark"] {
     --primary: #0a0f02;
     --text-primary: #f0fdf4;
