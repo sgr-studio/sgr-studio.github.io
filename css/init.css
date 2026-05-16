@@ -335,14 +335,14 @@ canvas {
     color: var(--accent);
 }
 
-/* Lang Dropdown Desktop */
-.lang-dropdown {
+/* Lang & Theme Dropdown Desktop */
+.lang-dropdown, .theme-dropdown {
     position: relative;
     z-index: 10;
     cursor: pointer;
 }
 
-.lang-current {
+.lang-current, .theme-current {
     display: flex;
     align-items: center;
     gap: 6px;
@@ -355,22 +355,22 @@ canvas {
     border: 1px solid transparent;
 }
 
-.lang-current i:first-child {
+.lang-current i:first-child, .theme-current i:first-child {
     font-size: 18px;
     color: var(--accent);
 }
 
-.lang-current i.bx-chevron-down {
+.lang-current i.bx-chevron-down, .theme-current i.bx-chevron-down {
     font-size: 14px;
     opacity: 0.5;
 }
 
-.lang-dropdown:hover .lang-current {
+.lang-dropdown:hover .lang-current, .theme-dropdown:hover .theme-current {
     background: rgba(128, 128, 128, 0.15);
     border-color: var(--accent);
 }
 
-.lang-options {
+.lang-options, .theme-options {
     position: absolute;
     top: 100%;
     right: 0;
@@ -387,27 +387,30 @@ canvas {
     border: 1px solid rgba(128, 128, 128, 0.1);
 }
 
-[data-theme="dark"] .lang-options {
+[data-theme="dark"] .lang-options, [data-theme="dark"] .theme-options {
     background: #151a0d;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
     border-color: rgba(255, 255, 255, 0.05);
 }
 
-.lang-dropdown:hover .lang-options {
+.lang-dropdown:hover .lang-options, .theme-dropdown:hover .theme-options {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-.lang-options div {
+.lang-options div, .theme-options div {
     padding: 12px 20px;
     font-size: 14px;
     font-weight: 500;
     white-space: nowrap;
     transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.lang-options div:hover {
+.lang-options div:hover, .theme-options div:hover {
     background: var(--accent);
     color: white;
 }
@@ -438,6 +441,92 @@ canvas {
 /* Desktop descriptions (hidden) */
 .header-navigation ul li::after {
     display: none;
+}
+
+/* Footer Styling */
+footer {
+    padding: 60px 0 40px;
+    border-top: 1px solid rgba(128, 128, 128, 0.1);
+    background: rgba(var(--primary-rgb), 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-left .logo-container {
+    padding: 0;
+    pointer-events: none;
+}
+
+.copyright {
+    font-size: 13px;
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    font-size: 22px;
+    color: var(--text-primary);
+    transition: all 0.3s;
+    opacity: 0.6;
+}
+
+.social-links a:hover {
+    color: var(--accent);
+    opacity: 1;
+    transform: translateY(-3px);
+}
+
+/* Theme Dropdown in Footer (Override positioning to open upwards if needed, or keep standard if enough space) */
+.theme-dropdown .theme-options {
+    bottom: 100%;
+    top: auto;
+    margin-bottom: 12px;
+    margin-top: 0;
+}
+
+#current-theme-label {
+    text-transform: capitalize;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .footer-left {
+        align-items: center;
+    }
+    
+    .footer-right {
+        flex-direction: column;
+        gap: 25px;
+    }
 }
 
 /* Mobile & Full Screen Menu styles */
@@ -515,20 +604,20 @@ canvas {
         transform: translateY(0);
     }
     
-    .lang-dropdown {
-        margin-top: 30px;
+    .lang-dropdown, .theme-dropdown {
+        margin-top: 20px;
         opacity: 0;
         transform: translateY(20px);
         transition: all 0.6s ease 0.6s;
         width: 100%;
     }
 
-    .header-navigation.active .lang-dropdown {
+    .header-navigation.active .lang-dropdown, .header-navigation.active .theme-dropdown {
         opacity: 1;
         transform: translateY(0);
     }
 
-    .lang-options {
+    .lang-options, .theme-options {
         position: static;
         display: flex;
         gap: 12px;
@@ -542,7 +631,7 @@ canvas {
         border: none !important;
     }
 
-    .lang-options div {
+    .lang-options div, .theme-options div {
         padding: 6px 12px;
         border-radius: 20px;
         border: 1px solid var(--accent);
@@ -552,7 +641,7 @@ canvas {
         min-width: auto;
     }
 
-    .lang-current {
+    .lang-current, .theme-current {
         display: none;
     }
 }
@@ -589,7 +678,7 @@ canvas {
 }
 
 @keyframes morph {
-    0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    0% { border-radius: 60% 40% 30% / 60% 30% 70% 40%; }
     50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    100% { border-radius: 60% 40% 30% / 60% 30% 70% 40%; }
 }

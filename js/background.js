@@ -161,7 +161,7 @@ async function setLanguage(lang) {
                 if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                     el.placeholder = value;
                 } else {
-                    el.textContent = value;
+                    scrambleText(el, value); // スクランブル演出を適用
                 }
             }
         });
@@ -184,21 +184,56 @@ async function setLanguage(lang) {
     }
 }
 
+// Text Scramble Effect
+function scrambleText(element, finalValue) {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+';
+    const iterations = 10;
+    let currentIteration = 0;
+    
+    const interval = setInterval(() => {
+        element.textContent = finalValue
+            .split('')
+            .map((char, index) => {
+                if (index < (currentIteration / iterations) * finalValue.length) {
+                    return finalValue[index];
+                }
+                return chars[Math.floor(Math.random() * chars.length)];
+            })
+            .join('');
+        
+        if (currentIteration >= iterations) {
+            clearInterval(interval);
+            element.textContent = finalValue;
+        }
+        currentIteration++;
+    }, 40);
+}
+
 function updateThemeToggleText() {
-    if (!themeToggle || !translations) return;
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    themeToggle.textContent = isDark ? 
-        (translations.footer.theme_light || 'Light Mode') : 
-        (translations.footer.theme_dark || 'Dark Mode');
+    
+    const themeIcon = document.getElementById('theme-icon-active');
+    const themeLabel = document.getElementById('current-theme-label');
+    
+    if (themeIcon) {
+        themeIcon.className = isDark ? 'bx bx-moon' : 'bx bx-sun';
+    }
+    if (themeLabel) {
+        themeLabel.textContent = isDark ? 'Dark' : 'Light';
+    }
 }
 
 // --- Theme Logic ---
+function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    updateThemeToggleText();
+}
+
 function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateThemeToggleText();
+    setTheme(newTheme);
 }
 
 // Handle Resize
@@ -210,10 +245,7 @@ window.addEventListener('resize', () => {
 
 // Initial state
 const savedTheme = localStorage.getItem('theme') || 'light';
-document.documentElement.setAttribute('data-theme', savedTheme);
-if (themeToggle) {
-    themeToggle.addEventListener('click', toggleTheme);
-}
+setTheme(savedTheme);
 
 // 丸い星のためのテクスチャ作成
 function createCircleTexture() {

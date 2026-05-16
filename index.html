@@ -75,10 +75,42 @@
                 </div>
             </section>
         </div>
+        <div class="container">
+            <h2>ようこそ</h2>
+
+        </div>
     </main>
     <footer>
         <div class="container">
-            <button class="theme-toggle" id="themeToggle">Dark Mode</button>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="logo-container">
+                        <div class="logo"></div>
+                        <span>STUDIO</span>
+                    </div>
+                    <p class="copyright">&copy; 2026 SGR STUDIO. All rights reserved.</p>
+                </div>
+                
+                <div class="footer-right">
+                    <div class="social-links">
+                        <a href="#"><i class='bx bxl-twitter'></i></a>
+                        <a href="#"><i class='bx bxl-github'></i></a>
+                        <a href="#"><i class='bx bxl-discord-alt'></i></a>
+                    </div>
+                    
+                    <div class="theme-dropdown">
+                        <div class="theme-current">
+                            <i id="theme-icon-active" class='bx bx-sun'></i>
+                            <span id="current-theme-label">Light</span>
+                            <i class='bx bx-chevron-down'></i>
+                        </div>
+                        <div class="theme-options">
+                            <div onclick="setTheme('light')"><i class='bx bx-sun'></i> Light</div>
+                            <div onclick="setTheme('dark')"><i class='bx bx-moon'></i> Dark</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
