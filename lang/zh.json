@@ -1,0 +1,18 @@
+{
+    "nav": {
+        "home": "首页",
+        "about": "关于",
+        "blog": "博客",
+        "works": "作品",
+        "contact": "联系"
+    },
+    "hero": {
+        "title": "比起理论，更在乎创作欲。",
+        "description": "正在开发各种应用程序。",
+        "cta": "查看作品"
+    },
+    "footer": {
+        "theme_dark": "深色模式",
+        "theme_light": "浅色模式"
+    }
+}

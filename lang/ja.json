@@ -1,0 +1,18 @@
+{
+    "nav": {
+        "home": "ホーム",
+        "about": "何者か",
+        "blog": "ブログ",
+        "works": "作品",
+        "contact": "問い合わせ"
+    },
+    "hero": {
+        "title": "理屈より、創作欲を。",
+        "description": "様々なアプリを開発しています。",
+        "cta": "作品を見る"
+    },
+    "footer": {
+        "theme_dark": "ダークモード",
+        "theme_light": "ライトモード"
+    }
+}

@@ -183,6 +183,151 @@ function createCircleTexture() {
     return texture;
 }
 
+// Internationalization (i18n)
+let currentLang = localStorage.getItem('lang') || 'ja';
+
+async function setLanguage(lang) {
+    try {
+        const response = await fetch(`lang/${lang}.json`);
+        const translations = await response.json();
+        
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            const keys = key.split('.');
+            let value = translations;
+            keys.forEach(k => {
+                value = value ? value[k] : null;
+            });
+            if (value) {
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = value;
+                } else {
+                    el.textContent = value;
+                }
+            }
+        });
+        
+        currentLang = lang;
+        localStorage.setItem('lang', lang);
+        document.documentElement.lang = lang;
+        
+        // Update theme toggle text if translated
+        if (themeToggle) {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            themeToggle.textContent = isDark ? (translations.footer.theme_light || 'Light Mode') : (translations.footer.theme_dark || 'Dark Mode');
+        }
+    } catch (e) {
+        console.error('Failed to load language file:', e);
+    }
+}
+
+// Hamburger Menu Toggle
+const hamburger = document.getElementById('hamburger');
+const nav = document.querySelector('.header-navigation');
+
+if (hamburger && nav) {
+    hamburger.addEventListener('click', () => {
+        const isActive = hamburger.classList.toggle('active');
+        nav.classList.toggle('active');
+        document.body.style.overflow = isActive ? 'hidden' : 'auto';
+    });
+
+    // Close menu when a link is clicked
+    const navLinks = nav.querySelectorAll('li');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    });
+}
+
+// Menu Background SVG Animation
+const blobPath = document.getElementById('menu-blob-path');
+const menuItems = document.querySelectorAll('.header-navigation ul li');
+let targetX = -100;
+let targetY = -100;
+let targetW = 0;
+let targetH = 0;
+let currentX = -100;
+let currentY = -100;
+let currentW = 0;
+let currentH = 0;
+let time = 0;
+
+function updateMenuBlob() {
+    time += 0.03; // 少しゆっくりにして柔らかさを出す
+    
+    // Smoothly follow target parameters
+    currentX += (targetX - currentX) * 0.12;
+    currentY += (targetY - currentY) * 0.12;
+    currentW += (targetW - currentW) * 0.12;
+    currentH += (targetH - currentH) * 0.12;
+    
+    if (currentY > -50 && currentX > -50) {
+        const centerX = currentX;
+        const centerY = currentY;
+        const baseW = currentW * 0.8;
+        const baseH = currentH * 0.8;
+        
+        // 有機的な形状を作成（ベジェ曲線で柔らかく）
+        let points = [];
+        const numPoints = 8;
+        for (let i = 0; i < numPoints; i++) {
+            const angle = (i / numPoints) * Math.PI * 2;
+            const wobble = Math.sin(time + i * 1.5) * 3;
+            const rX = baseW + wobble;
+            const rY = baseH + wobble;
+            points.push({
+                x: centerX + Math.cos(angle) * rX,
+                y: centerY + Math.sin(angle) * rY
+            });
+        }
+        
+        // ポイントを滑らかに繋ぐ
+        let d = `M ${points[0].x} ${points[0].y}`;
+        for (let i = 0; i < points.length; i++) {
+            const next = points[(i + 1) % points.length];
+            const xc = (points[i].x + next.x) / 2;
+            const yc = (points[i].y + next.y) / 2;
+            d += ` Q ${points[i].x} ${points[i].y}, ${xc} ${yc}`;
+        }
+        d += ' Z';
+        
+        blobPath.setAttribute('d', d);
+        blobPath.style.opacity = 0.15;
+    } else {
+        blobPath.style.opacity = 0;
+    }
+    
+    requestAnimationFrame(updateMenuBlob);
+}
+
+if (menuItems.length > 0) {
+    menuItems.forEach(item => {
+        item.addEventListener('mouseenter', (e) => {
+            const rect = e.target.getBoundingClientRect();
+            const containerRect = document.querySelector('.header-navigation').getBoundingClientRect();
+            
+            targetX = ((rect.left + rect.width / 2 - containerRect.left) / containerRect.width) * 100;
+            targetY = ((rect.top + rect.height / 2 - containerRect.top) / containerRect.height) * 100;
+            // ターゲットのサイズをパーセンテージで計算
+            targetW = (rect.width / containerRect.width) * 60; // 少し余裕を持たせる
+            targetH = (rect.height / containerRect.height) * 80;
+        });
+    });
+    
+    const navContainer = document.querySelector('.header-navigation');
+    navContainer.addEventListener('mouseleave', () => {
+        targetX = -100;
+        targetY = -100;
+    });
+}
+
+updateMenuBlob();
+
 // Initialize
 initLoader();
 initThree();
+setLanguage(currentLang);

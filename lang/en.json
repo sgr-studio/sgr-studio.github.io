@@ -1,0 +1,18 @@
+{
+    "nav": {
+        "home": "HOME",
+        "about": "ABOUT",
+        "blog": "BLOG",
+        "works": "WORKS",
+        "contact": "CONTACT"
+    },
+    "hero": {
+        "title": "Creativity over logic.",
+        "description": "Developing various applications.",
+        "cta": "View Works"
+    },
+    "footer": {
+        "theme_dark": "Dark Mode",
+        "theme_light": "Light Mode"
+    }
+}

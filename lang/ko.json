@@ -1,0 +1,18 @@
+{
+    "nav": {
+        "home": "홈",
+        "about": "소개",
+        "blog": "블로그",
+        "works": "작품",
+        "contact": "문의"
+    },
+    "hero": {
+        "title": "이론보다 창작욕을.",
+        "description": "다양한 앱을 개발하고 있습니다.",
+        "cta": "작품 보기"
+    },
+    "footer": {
+        "theme_dark": "다크 모드",
+        "theme_light": "라이트 모드"
+    }
+}

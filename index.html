@@ -18,19 +18,36 @@
     <header>
         <div class="container">
             <section class="header-container">
-                <div class="logo-container">
+                <div class="logo-container" onclick="location.href='index.html'">
                     <div class="logo"></div>
                     <span>STUDIO</span>
                 </div>
                 
                 <div class="header-navigation">
+                    <div class="menu-bg-svg-container">
+                        <svg id="menu-bg-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <path id="menu-blob-path" d=""></path>
+                        </svg>
+                    </div>
                     <ul>
-                        <li>HOME</li>
-                        <li>ABOUT</li>
-                        <li>BLOG</li>
-                        <li>WORKS</li>
-                        <li>CONTACT</li>
+                        <li data-i18n="nav.home" data-desc="Top Page">HOME</li>
+                        <li data-i18n="nav.about" data-desc="Who we are">ABOUT</li>
+                        <li data-i18n="nav.blog" data-desc="Our stories">BLOG</li>
+                        <li data-i18n="nav.works" data-desc="Our creations">WORKS</li>
+                        <li data-i18n="nav.contact" data-desc="Get in touch">CONTACT</li>
                     </ul>
+                    <div class="lang-selector">
+                        <span onclick="setLanguage('ja')">JP</span>
+                        <span onclick="setLanguage('en')">EN</span>
+                        <span onclick="setLanguage('zh')">ZH</span>
+                        <span onclick="setLanguage('ko')">KO</span>
+                    </div>
+                </div>
+                
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </section>
         </div>
@@ -39,10 +56,10 @@
         <div class="container">
             <section class="hero">
                 <div class="hero-content">
-                    <h1 class="hero-title">理屈より、創作欲を。</h1>
-                    <p class="hero-description">様々なアプリを開発しています。</p>
+                    <h1 class="hero-title" data-i18n="hero.title">理屈より、創作欲を。</h1>
+                    <p class="hero-description" data-i18n="hero.description">様々なアプリを開発しています。</p>
                     <div class="hero-cta">
-                        <button class="btn-primary">View Works</button>
+                        <button class="btn-primary" data-i18n="hero.cta">View Works</button>
                     </div>
                 </div>
                 <div class="hero-image-container">
