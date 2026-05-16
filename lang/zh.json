@@ -12,27 +12,27 @@
         "cta": "查看作品"
     },
     "intro": {
-        "title": "关于我们",
+        "title": "我们做什么",
         "description": "一个比起理论更重视直觉、致力于创造全新体验的工作室。",
-        "pickup_title": "精选作品",
+        "pickup_title": "精选",
         "recommend_title": "推荐",
         "apps_title": "我们的应用"
     },
     "apps": {
-        "app1_name": "SGR AI Connect",
-        "app1_desc": "通过直观操作与AI对话的次世代连接工具。",
-        "app2_name": "Code Flow",
-        "app2_desc": "最大化开发效率的轻量级编辑器。",
-        "app3_name": "Fast Sync",
-        "app3_desc": "实现设备间超高速同步的实用工具。",
-        "app4_name": "Art Pulse",
-        "app4_desc": "将情感转化为色彩的创意工具。",
-        "app5_name": "Daily Quest",
-        "app5_desc": "将日常生活游戏化的任务管理应用。",
-        "app6_name": "Cloud Nest",
-        "app6_desc": "安全的去中心化存储。",
-        "app7_name": "Shell Script Hub",
-        "app7_desc": "脚本共享平台。"
+        "app1_name": "SYCS",
+        "app1_desc": "正在开发的互动社区应用。",
+        "app2_name": "Fleeturbo",
+        "app2_desc": "正在开发的视频编辑软件。",
+        "app3_name": "Werewolf-Death",
+        "app3_desc": "正在开发的狼人杀游戏应用。",
+        "app4_name": "Kiwitter",
+        "app4_desc": "Twitter 仿制应用。",
+        "app5_name": "PeacOS",
+        "app5_desc": "正在开发的自制操作系统。",
+        "app6_name": "notPort",
+        "app6_desc": "已停止开发的匿名留言板应用。",
+        "app7_name": "2sCode",
+        "app7_desc": "正在开发的简单文本编辑器。"
     },
     "footer": {
         "theme_dark": "深色模式",

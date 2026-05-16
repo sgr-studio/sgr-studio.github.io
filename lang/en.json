@@ -12,27 +12,27 @@
         "cta": "View Works"
     },
     "intro": {
-        "title": "Who we are",
+        "title": "What we do",
         "description": "A studio that values intuition over logic to create new experiences.",
-        "pickup_title": "PickUP Creations",
+        "pickup_title": "PickUP",
         "recommend_title": "RECOMMENDED",
         "apps_title": "Our Applications"
     },
     "apps": {
-        "app1_name": "SGR AI Connect",
-        "app1_desc": "A next-gen connect tool for intuitive AI interaction.",
-        "app2_name": "Code Flow",
-        "app2_desc": "A lightweight editor to maximize development efficiency.",
-        "app3_name": "Fast Sync",
-        "app3_desc": "A utility for ultra-fast cross-device synchronization.",
-        "app4_name": "Art Pulse",
-        "app4_desc": "A creative tool that transforms emotions into colors.",
-        "app5_name": "Daily Quest",
-        "app5_desc": "A task management app that gamifies daily life.",
-        "app6_name": "Cloud Nest",
-        "app6_desc": "Secure decentralized storage.",
-        "app7_name": "Shell Script Hub",
-        "app7_desc": "A platform for sharing scripts."
+        "app1_name": "SYCS",
+        "app1_desc": "Interactive community app under development.",
+        "app2_name": "Fleeturbo",
+        "app2_desc": "Video editing software under development.",
+        "app3_name": "Werewolf-Death",
+        "app3_desc": "Werewolf game app under development.",
+        "app4_name": "Kiwitter",
+        "app4_desc": "Twitter clone app.",
+        "app5_name": "PeacOS",
+        "app5_desc": "Custom OS under development.",
+        "app6_name": "notPort",
+        "app6_desc": "Discontinued anonymous bulletin board app.",
+        "app7_name": "2sCode",
+        "app7_desc": "Simple text editor under development."
     },
     "footer": {
         "theme_dark": "Dark Mode",
