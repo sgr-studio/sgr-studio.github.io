@@ -73,5 +73,19 @@
     "footer": {
         "theme_dark": "다크 모드",
         "theme_light": "라이트 모드"
+    },
+    "error404": {
+        "loader_subtitle": "우주의 미아",
+        "title": "404 - 페이지를 찾을 수 없습니다",
+        "description": "찾으시는 페이지가 존재하지 않거나 다른 우주로 이동했습니다.",
+        "back_home": "홈으로 돌아가기",
+        "game_title": "잠깐! 작은 선물이 있어요...",
+        "game_desc": "심심풀이로 미니 게임은 어떠신가요?",
+        "game_start_btn": "미니 게임 시작",
+        "game_dodge_title": "2A VOID",
+        "game_dodge_desc": "마우스나 터치로 캐릭터를 움직여 빨간 블록을 피하세요!",
+        "game_over": "게임 오버",
+        "retry": "리트라이",
+        "final_score": "스코어"
     }
 }

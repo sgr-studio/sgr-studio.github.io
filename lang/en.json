@@ -73,5 +73,19 @@
     "footer": {
         "theme_dark": "Dark Mode",
         "theme_light": "Light Mode"
+    },
+    "error404": {
+        "loader_subtitle": "Lost in Space",
+        "title": "404 - PAGE NOT FOUND",
+        "description": "The page you are looking for does not exist or has moved to another universe.",
+        "back_home": "Back to Home",
+        "game_title": "Wait! Here's a little gift...",
+        "game_desc": "How about a mini-game to kill some time?",
+        "game_start_btn": "Launch Mini-game",
+        "game_dodge_title": "2A VOID",
+        "game_dodge_desc": "Move your character with mouse or touch to avoid red blocks!",
+        "game_over": "GAME OVER",
+        "retry": "RETRY",
+        "final_score": "SCORE"
     }
 }

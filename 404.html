@@ -151,27 +151,26 @@
             <section class="hero-3d-container" id="hero-3d-container"></section>
             
             <div class="not-found-message">
-                <p class="hero-description">宇宙の彼方まで調べましたが、404 に行きつきました</p>
+                <p class="hero-description" data-i18n="error404.description">お探しのページは存在しないか、別の宇宙へ移動しました。</p>
                 <div class="hero-cta" style="margin-top: 30px;">
-                    <button class="btn-primary" onclick="location.href='index.html'">ホームに戻る</button>
-                    <button class="btn-primary" id="start-game-btn" onclick="toggleGame()">ミニゲーム</button>
+                    <button class="btn-primary" onclick="location.href='index.html'" data-i18n="error404.back_home">ホームに戻る</button>
+                    <button class="btn-primary" id="start-game-btn" onclick="toggleGame()" data-i18n="error404.game_start_btn">ミニゲームを起動する</button>
                 </div>
             </div>
 
             <section class="game-section">
-
                 <div id="game-container">
                     <canvas id="game-canvas"></canvas>
                     <div id="score-display">SCORE: 0</div>
                     <div id="game-start-overlay" class="game-overlay">
-                        <h3>DODGE</h3>
-                        <p>マウスまたはタッチで自機を動かして<br>赤いブロックを避けてください！</p>
+                        <h3 data-i18n="error404.game_dodge_title">2A VOID</h3>
+                        <p data-i18n="error404.game_dodge_desc">マウスまたはタッチで自機を動かして<br>赤いブロックを避けてください！</p>
                         <button class="btn-game" onclick="initGame()">START</button>
                     </div>
                     <div id="game-over-overlay" class="game-overlay" style="display:none;">
-                        <h3>GAME OVER</h3>
+                        <h3 data-i18n="error404.game_over">GAME OVER</h3>
                         <p id="final-score">SCORE: 0</p>
-                        <button class="btn-game" onclick="initGame()">RETRY</button>
+                        <button class="btn-game" onclick="initGame()" data-i18n="error404.retry">RETRY</button>
                     </div>
                 </div>
             </section>
@@ -308,6 +307,14 @@
         let obstacles = [];
         let animationId;
 
+        function getTranslation(key) {
+            if (typeof translations === 'undefined' || !translations) return key;
+            const keys = key.split('.');
+            let value = translations;
+            keys.forEach(k => { value = value ? value[k] : null; });
+            return value || key;
+        }
+
         function toggleGame() {
             if (gameContainer.style.display === 'block') {
                 gameContainer.style.display = 'none';
@@ -334,10 +341,15 @@
             
             startOverlay.style.display = 'none';
             overOverlay.style.display = 'none';
-            scoreDisplay.innerText = `SCORE: ${score}`;
+            updateScoreDisplay();
             
             if (animationId) cancelAnimationFrame(animationId);
             gameLoop();
+        }
+
+        function updateScoreDisplay() {
+            const label = getTranslation('error404.final_score');
+            scoreDisplay.innerText = `${label}: ${score}`;
         }
 
         function gameLoop() {
@@ -379,7 +391,7 @@
                 if (obs.y > gameCanvas.height + 20) {
                     obstacles.splice(i, 1);
                     score += 10;
-                    scoreDisplay.innerText = `SCORE: ${score}`;
+                    updateScoreDisplay();
                 }
             }
 
@@ -389,7 +401,8 @@
         function gameOver() {
             gameActive = false;
             overOverlay.style.display = 'flex';
-            finalScore.innerText = `SCORE: ${score}`;
+            const label = getTranslation('error404.final_score');
+            finalScore.innerText = `${label}: ${score}`;
         }
 
         // Controls

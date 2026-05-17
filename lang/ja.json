@@ -73,5 +73,19 @@
     "footer": {
         "theme_dark": "ダークモード",
         "theme_light": "ライトモード"
+    },
+    "error404": {
+        "loader_subtitle": "宇宙の迷子",
+        "title": "404 - ページが見つかりません",
+        "description": "お探しのページは存在しないか、別の宇宙へ移動しました。",
+        "back_home": "ホームに戻る",
+        "game_title": "ちょっと待って！プレゼントがあります...",
+        "game_desc": "暇つぶしにミニゲームでもいかがですか？",
+        "game_start_btn": "ミニゲームを起動する",
+        "game_dodge_title": "2A VOID",
+        "game_dodge_desc": "マウスまたはタッチで自機を動かして赤いブロックを避けてください！",
+        "game_over": "ゲームオーバー",
+        "retry": "リトライ",
+        "final_score": "スコア"
     }
 }
