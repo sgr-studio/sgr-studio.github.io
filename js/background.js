@@ -297,6 +297,25 @@ window.addEventListener('resize', () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
+// Event Listeners for onclick replacement
+document.addEventListener('DOMContentLoaded', () => {
+    // Theme selection
+    document.querySelectorAll('.theme-options li').forEach(el => {
+        el.addEventListener('click', (e) => {
+            const theme = el.getAttribute('data-theme-value');
+            if (typeof setTheme === 'function') setTheme(theme);
+        });
+    });
+
+    // Theme toggle
+    document.querySelectorAll('.theme-toggle-btn').forEach(el => {
+        el.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (typeof toggleTheme === 'function') toggleTheme();
+        });
+    });
+});
+
 // Initial state
 const savedTheme = localStorage.getItem('theme') || 'light';
 setTheme(savedTheme);

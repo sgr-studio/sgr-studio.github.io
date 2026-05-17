@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/root.css">
     <link rel="stylesheet" href="css/init.css">
     <link rel="shortcut icon" href="./assets/favicon/favicon.ico" type="image/x-icon">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='./assets/boxicons/css/boxicons.min.css' rel='stylesheet'>
     <title>SGR STUDIO</title>
 </head>
 <body>
@@ -21,10 +21,10 @@
     <header>
         <div class="container">
             <section class="header-container">
-                <div class="logo-container" onclick="location.href='index'">
+                <a href="index.html" class="logo-container">
                     <div class="logo"></div>
                     <span>STUDIO</span>
-                </div>
+                </a>
                 
                 <div class="header-navigation">
                     <div class="menu-bg-svg-container">
@@ -33,11 +33,11 @@
                         </svg>
                     </div>
                     <ul>
-                        <li data-i18n="nav.home" data-desc="Top Page" onclick="location.href='index'">HOME</li>
-                        <li data-i18n="nav.about" data-desc="Who we are" onclick="location.href='about'">ABOUT</li>
-                        <li data-i18n="nav.blog" data-desc="Our stories" onclick="location.href='blog'">BLOG</li>
-                        <li data-i18n="nav.works" data-desc="Our creations" onclick="location.href='works'">WORKS</li>
-                        <li data-i18n="nav.contact" data-desc="Get in touch" onclick="location.href='contact'">CONTACT</li>
+                        <li><a href="index.html" data-i18n="nav.home" data-desc="Top Page">HOME</a></li>
+                        <li><a href="about.html" data-i18n="nav.about" data-desc="Who we are">ABOUT</a></li>
+                        <li><a href="blog.html" data-i18n="nav.blog" data-desc="Our stories">BLOG</a></li>
+                        <li><a href="works.html" data-i18n="nav.works" data-desc="Our creations">WORKS</a></li>
+                        <li><a href="contact.html" data-i18n="nav.contact" data-desc="Get in touch">CONTACT</a></li>
                     </ul>
                     <div class="lang-dropdown">
                         <div class="lang-current">
@@ -46,10 +46,10 @@
                             <i class='bx bx-chevron-down'></i>
                         </div>
                         <div class="lang-options">
-                            <div onclick="setLanguage('ja')">日本語</div>
-                            <div onclick="setLanguage('en')">English</div>
-                            <div onclick="setLanguage('zh')">简体中文</div>
-                            <div onclick="setLanguage('ko')">한국어</div>
+                            <li data-lang="ja">日本語</li>
+                            <li data-lang="en">English</li>
+                            <li data-lang="zh">简体中文</li>
+                            <li data-lang="ko">한국어</li>
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                     <h1 class="hero-title" data-i18n="hero.title">理屈より、創作欲を。</h1>
                     <p class="hero-description" data-i18n="hero.description">様々なアプリを開発しています。</p>
                     <div class="hero-cta">
-                        <button class="btn-primary" data-i18n="hero.cta" onclick="move('https://sgr-studio.github.io/works')">View Works</button>
+                        <a href="https://sgr-studio.github.io/works" class="btn-primary" data-i18n="hero.cta">View Works</a>
                     </div>
                 </div>
                 <div class="hero-image-container">
@@ -104,7 +104,7 @@
                             </div>
                             <h3 data-i18n="apps.app1_name"></h3>
                             <p data-i18n="apps.app1_desc"></p>
-                            <button class="btn-primary" style="padding: 10px 25px; font-size: 14px;" data-i18n="hero.cta" onclick="move('https://github.com/SuchGameR/sycs-Vue/tree/About')">View Works</button>
+                            <a href="https://github.com/SuchGameR/sycs-Vue/tree/About" class="btn-primary" data-i18n="hero.cta">View Works</a>
                         </div>
                     </div>
                 </div>
@@ -185,14 +185,14 @@
                     </div>
                     
                     <div class="theme-dropdown">
-                        <div class="theme-current" onclick="toggleTheme()">
+                        <a href="#" class="theme-current theme-toggle-btn">
                             <i id="theme-icon-active" class='bx bx-sun'></i>
                             <span id="current-theme-label">Light</span>
                             <i class='bx bx-chevron-down' id="theme-chevron"></i>
-                        </div>
+                        </a>
                         <div class="theme-options">
-                            <div onclick="setTheme('light')"><i class='bx bx-sun'></i> Light</div>
-                            <div onclick="setTheme('dark')"><i class='bx bx-moon'></i> Dark</div>
+                            <li data-theme-value="light"><i class='bx bx-sun'></i> Light</li>
+                            <li data-theme-value="dark"><i class='bx bx-moon'></i> Dark</li>
                         </div>
                     </div>
                 </div>
@@ -202,5 +202,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="js/background.js"></script>
     <script src="js/move.js"></script>
+    <script src="js/lang.js"></script>
 </body>
 </html>

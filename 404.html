@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/root.css">
     <link rel="stylesheet" href="css/init.css">
     <link rel="shortcut icon" href="./assets/favicon/favicon.ico" type="image/x-icon">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='./assets/boxicons/css/boxicons.min.css' rel='stylesheet'>
     <title>404 | SGR STUDIO</title>
     <style>
         .hero-3d-container {
@@ -105,10 +105,10 @@
     <header>
         <div class="container">
             <section class="header-container">
-                <div class="logo-container" onclick="location.href='index'">
+                <a href="index.html" class="logo-container">
                     <div class="logo"></div>
                     <span>STUDIO</span>
-                </div>
+                </a>
                 
                 <div class="header-navigation">
                     <div class="menu-bg-svg-container">
@@ -117,11 +117,11 @@
                         </svg>
                     </div>
                     <ul>
-                        <li data-i18n="nav.home" data-desc="Top Page" onclick="location.href='index'">HOME</li>
-                        <li data-i18n="nav.about" data-desc="Who we are" onclick="location.href='about'">ABOUT</li>
-                        <li data-i18n="nav.blog" data-desc="Our stories" onclick="location.href='blog'">BLOG</li>
-                        <li data-i18n="nav.works" data-desc="Our creations" onclick="location.href='works'">WORKS</li>
-                        <li data-i18n="nav.contact" data-desc="Get in touch" onclick="location.href='contact'">CONTACT</li>
+                        <li><a href="index.html" data-i18n="nav.home" data-desc="Top Page">HOME</a></li>
+                        <li><a href="about.html" data-i18n="nav.about" data-desc="Who we are">ABOUT</a></li>
+                        <li><a href="blog.html" data-i18n="nav.blog" data-desc="Our stories">BLOG</a></li>
+                        <li><a href="works.html" data-i18n="nav.works" data-desc="Our creations">WORKS</a></li>
+                        <li><a href="contact.html" data-i18n="nav.contact" data-desc="Get in touch">CONTACT</a></li>
                     </ul>
                     <div class="lang-dropdown">
                         <div class="lang-current">
@@ -130,10 +130,10 @@
                             <i class='bx bx-chevron-down'></i>
                         </div>
                         <div class="lang-options">
-                            <div onclick="setLanguage('ja')">日本語</div>
-                            <div onclick="setLanguage('en')">English</div>
-                            <div onclick="setLanguage('zh')">简体中文</div>
-                            <div onclick="setLanguage('ko')">한국어</div>
+                            <li data-lang="ja">日本語</li>
+                            <li data-lang="en">English</li>
+                            <li data-lang="zh">简体中文</li>
+                            <li data-lang="ko">한국어</li>
                         </div>
                     </div>
                 </div>
@@ -153,8 +153,8 @@
             <div class="not-found-message">
                 <p class="hero-description" data-i18n="error404.description">お探しのページは存在しないか、別の宇宙へ移動しました。</p>
                 <div class="hero-cta" style="margin-top: 30px;">
-                    <button class="btn-primary" onclick="location.href='index.html'" data-i18n="error404.back_home">ホームに戻る</button>
-                    <button class="btn-primary" id="start-game-btn" onclick="toggleGame()" data-i18n="error404.game_start_btn">ミニゲームを起動する</button>
+                    <a href="index.html" class="btn-primary" data-i18n="error404.back_home">ホームに戻る</a>
+                    <a href="#" class="btn-primary" id="start-game-btn" data-action="toggle-game" data-i18n="error404.game_start_btn">ミニゲームを起動する</a>
                 </div>
             </div>
 
@@ -165,12 +165,12 @@
                     <div id="game-start-overlay" class="game-overlay">
                         <h3 data-i18n="error404.game_dodge_title">2A VOID</h3>
                         <p data-i18n="error404.game_dodge_desc">マウスまたはタッチで自機を動かして<br>赤いブロックを避けてください！</p>
-                        <button class="btn-game" onclick="initGame()">START</button>
+                        <a href="#" class="btn-game" data-action="init-game">START</a>
                     </div>
                     <div id="game-over-overlay" class="game-overlay" style="display:none;">
                         <h3 data-i18n="error404.game_over">GAME OVER</h3>
                         <p id="final-score">SCORE: 0</p>
-                        <button class="btn-game" onclick="initGame()" data-i18n="error404.retry">RETRY</button>
+                        <a href="#" class="btn-game" data-action="init-game" data-i18n="error404.retry">RETRY</a>
                     </div>
                 </div>
             </section>
@@ -202,6 +202,7 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/geometries/TextGeometry.js"></script>
     <script src="js/background.js"></script>
     <script src="js/move.js"></script>
+    <script src="js/lang.js"></script>
 
     <!-- 3D 404 Script -->
     <script>
@@ -427,6 +428,21 @@
         }, { passive: false });
 
         window.addEventListener('resize', resizeGameCanvas);
+
+        // Event listeners for data-action buttons
+        document.querySelectorAll('[data-action="toggle-game"]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                toggleGame();
+            });
+        });
+
+        document.querySelectorAll('[data-action="init-game"]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                initGame();
+            });
+        });
     </script>
 </body>
 </html>
