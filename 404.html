@@ -7,169 +7,89 @@
     <link rel="stylesheet" href="css/init.css">
     <link rel="shortcut icon" href="./assets/favicon/favicon.ico" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>404 - Page Not Found | SGR STUDIO</title>
+    <title>404 | SGR STUDIO</title>
     <style>
-        /* 404 Specific Page Styling */
-        .hero-title-area {
+        .hero-3d-container {
             width: 100%;
-            height: 250px;
+            height: 400px;
             display: flex;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center;
             position: relative;
-            margin-bottom: 20px;
         }
 
-        #three-404-title-canvas {
+        #three-canvas {
             width: 100%;
             height: 100%;
-            max-width: 500px;
-            display: block;
         }
 
-        /* TV & Character Scene */
-        .room-scene-section {
+        .not-found-message {
+            text-align: center;
+            margin-top: -50px;
+            z-index: 10;
+            position: relative;
+        }
+
+        .game-section {
+            margin-top: 100px;
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        #game-container {
+            display: none;
+            margin: 20px auto;
             width: 100%;
-            margin-top: 80px;
-            padding-bottom: 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: radial-gradient(ellipse at bottom, rgba(143, 200, 48, 0.12) 0%, transparent 75%);
+            max-width: 600px;
+            height: 400px;
+            background: #000;
+            border: 2px solid var(--accent);
             position: relative;
+            overflow: hidden;
+            border-radius: 8px;
         }
 
-        .watch-group {
-            display: flex;
-            align-items: flex-end;
-            gap: 60px;
-        }
-
-        .char-back-wrapper {
-            width: 180px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .char-back-img {
+        #game-canvas {
             width: 100%;
-            height: auto;
-            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4)) brightness(0.8);
-            animation: characterFloat 4s infinite ease-in-out;
+            height: 100%;
         }
 
-        @keyframes characterFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .tv-wrapper {
-            width: 230px;
-            position: relative;
-            cursor: pointer;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 3;
-        }
-
-        .tv-wrapper:hover {
-            transform: scale(1.1) rotate(2deg);
-        }
-
-        .tv-glow {
+        .game-overlay {
             position: absolute;
-            top: 30%;
-            left: 20%;
-            width: 55%;
-            height: 45%;
-            background: var(--accent);
-            filter: blur(40px);
-            opacity: 0.15;
-            animation: tvFlicker 3s infinite alternate;
-            pointer-events: none;
-        }
-
-        @keyframes tvFlicker {
-            0% { opacity: 0.1; }
-            100% { opacity: 0.25; }
-        }
-
-        /* Overlay & Game Terminal */
-        #game-overlay {
-            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.75);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            z-index: 9999;
-            display: none;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            opacity: 0;
-            transition: opacity 0.5s ease;
+            color: #fff;
         }
 
-        #game-overlay.active {
-            display: flex;
-            opacity: 1;
+        .btn-game {
+            background: var(--accent);
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.2s;
         }
 
-        .terminal-window {
-            width: 90%;
-            max-width: 650px;
-            background: #0d0d0d;
-            border-radius: 16px;
-            border: 1px solid #333;
-            box-shadow: 0 50px 120px rgba(0,0,0,0.9);
-            overflow: hidden;
-            transform: scale(0.9);
-            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        .btn-game:hover {
+            transform: scale(1.05);
         }
 
-        #game-overlay.active .terminal-window {
-            transform: scale(1);
-        }
-
-        .terminal-header {
-            background: #1a1a1a;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #222;
-        }
-
-        .terminal-body {
-            padding: 30px;
-            font-family: 'Courier New', monospace;
-            color: #8fc830;
-            min-height: 380px;
-        }
-
-        #game-canvas {
-            display: none;
-            background: #000;
-            width: 100%;
-            max-width: 450px;
-            margin: 0 auto;
-            border-radius: 8px;
-            box-shadow: inset 0 0 20px rgba(143, 200, 48, 0.2);
-        }
-
-        .game-stats {
-            display: none;
-            justify-content: space-between;
-            margin-top: 20px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        @media (max-width: 768px) {
-            .hero-title-area { height: 180px; justify-content: center; }
-            .watch-group { gap: 30px; transform: scale(0.85); }
+        #score-display {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: var(--accent);
+            font-family: monospace;
+            font-size: 20px;
         }
     </style>
 </head>
@@ -177,14 +97,11 @@
     <div id="loader" class="loader">
         <div class="loader-content">
             <p id="loader-copy" class="loader-copy">404</p>
-            <p id="loader-subtitle" class="loader-subtitle">Restoring Reality...</p>
+            <p id="loader-subtitle" class="loader-subtitle">Lost in Space</p>
             <div class="loader-line"></div>
         </div>
     </div>
-
-    <!-- Background from index.html -->
     <div id="canvas-container" class="background"></div>
-
     <header>
         <div class="container">
             <section class="header-container">
@@ -194,7 +111,6 @@
                 </div>
                 
                 <div class="header-navigation">
-                    <!-- SVG required by background.js -->
                     <div class="menu-bg-svg-container">
                         <svg id="menu-bg-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
                             <path id="menu-blob-path" d=""></path>
@@ -230,81 +146,37 @@
             </section>
         </div>
     </header>
-
     <main>
         <div class="container">
-            <!-- Hero Section -->
-            <section class="hero">
-                <div class="hero-content">
-                    <!-- 3D "404" replaces the text title -->
-                    <div class="hero-title-area" id="hero-3d-title-container"></div>
-                    
-                    <p class="hero-description">お探しのページは、別の世界線に移動してしまったようです。</p>
-                    <div class="hero-cta">
-                        <button class="btn-primary" onclick="location.href='index.html'">ホームへ帰還</button>
-                    </div>
+            <section class="hero-3d-container" id="hero-3d-container"></section>
+            
+            <div class="not-found-message">
+                <p class="hero-description">宇宙の彼方まで調べましたが、404 に行きつきました</p>
+                <div class="hero-cta" style="margin-top: 30px;">
+                    <button class="btn-primary" onclick="location.href='index.html'">ホームに戻る</button>
+                    <button class="btn-primary" id="start-game-btn" onclick="toggleGame()">ミニゲーム</button>
                 </div>
-                <div class="hero-image-container">
-                    <!-- Standard blob as background for 3D area if needed, or empty -->
-                    <div class="hero-image-blob" style="opacity: 0.2;"></div>
-                </div>
-            </section>
+            </div>
 
-            <!-- TV & Character Interaction -->
-            <section class="room-scene-section">
-                <div class="watch-group">
-                    <div class="char-back-wrapper">
-                        <img src="assets/members/suchgamer.png" alt="SuchGameR" class="char-back-img">
+            <section class="game-section">
+
+                <div id="game-container">
+                    <canvas id="game-canvas"></canvas>
+                    <div id="score-display">SCORE: 0</div>
+                    <div id="game-start-overlay" class="game-overlay">
+                        <h3>DODGE</h3>
+                        <p>マウスまたはタッチで自機を動かして<br>赤いブロックを避けてください！</p>
+                        <button class="btn-game" onclick="initGame()">START</button>
                     </div>
-                    
-                    <div class="tv-wrapper" onclick="launchGame()">
-                        <div class="tv-glow"></div>
-                        <svg viewBox="0 0 100 85" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="tvCaseGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#5a4a3a;" />
-                                    <stop offset="100%" style="stop-color:#3a2a1a;" />
-                                </linearGradient>
-                            </defs>
-                            <line x1="30" y1="10" x2="48" y2="25" stroke="#666" stroke-width="2"/>
-                            <line x1="70" y1="10" x2="55" y2="25" stroke="#666" stroke-width="2"/>
-                            <rect x="10" y="20" width="80" height="60" rx="8" fill="url(#tvCaseGrad)"/>
-                            <rect x="15" y="25" width="55" height="50" rx="5" fill="#1a1a1a"/>
-                            <rect x="18" y="28" width="49" height="44" rx="3" fill="#000"/>
-                            <rect x="73" y="25" width="12" height="50" rx="2" fill="#2a1a0a"/>
-                            <circle cx="79" cy="35" r="3" fill="#111"/>
-                            <circle cx="79" cy="45" r="3" fill="#111"/>
-                        </svg>
+                    <div id="game-over-overlay" class="game-overlay" style="display:none;">
+                        <h3>GAME OVER</h3>
+                        <p id="final-score">SCORE: 0</p>
+                        <button class="btn-game" onclick="initGame()">RETRY</button>
                     </div>
                 </div>
             </section>
         </div>
     </main>
-
-    <!-- Game Overlay UI -->
-    <div id="game-overlay">
-        <div class="terminal-window">
-            <div class="terminal-header">
-                <div style="display:flex; gap:8px;">
-                    <div style="width:12px; height:12px; border-radius:50%; background:#ff5f56;"></div>
-                    <div style="width:12px; height:12px; border-radius:50%; background:#ffbd2e;"></div>
-                    <div style="width:12px; height:12px; border-radius:50%; background:#27c93f;"></div>
-                </div>
-                <div style="cursor:pointer; color:#888;" onclick="closeGame()"><i class='bx bx-x' style="font-size:24px;"></i></div>
-            </div>
-            <div class="terminal-body" id="term-content-root">
-                <div id="boot-log-text">> ANALYZING SIGNAL...<br>> ESTABLISHING CONNECTION...</div>
-                <div id="game-inner-wrap" style="display:none; text-align:center;">
-                    <canvas id="game-canvas" width="400" height="400"></canvas>
-                    <div class="game-stats" id="game-stats-display" style="display:flex;">
-                        <span>SCORE: <span id="score-count">0</span></span>
-                        <span>LIFE: <span id="life-count">3</span></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -315,6 +187,7 @@
                     </div>
                     <p class="copyright">&copy; 2026 SGR STUDIO. All rights reserved.</p>
                 </div>
+                
                 <div class="footer-right">
                     <div class="social-links">
                         <a href="https://www.youtube.com/@SGR-STUDIO-OFFICIAL" target="_blank" rel="noopener noreferrer"><i class='bx bxl-youtube'></i></a>
@@ -325,219 +198,222 @@
         </div>
     </footer>
 
-    <!-- Three.js Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FontLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/geometries/TextGeometry.js"></script>
     <script src="js/background.js"></script>
     <script src="js/move.js"></script>
 
-    <!-- 404 Specific Interactive Script -->
+    <!-- 3D 404 Script -->
     <script>
-    (function() {
-        let s404, c404, r404, m404;
-        let frame = 0;
+        (function() {
+            const container = document.getElementById('hero-3d-container');
+            let scene, camera, renderer, textMesh;
 
-        // Use correct JSDelivr paths for npm packages to ensure correct MIME types (application/javascript)
-        const FONT_URL = 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/fonts/helvetiker_bold.typeface.json';
-        const ADDONS = [
-            'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FontLoader.js',
-            'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/geometries/TextGeometry.js'
-        ];
+            function init3D() {
+                if (!container) return;
+                
+                scene = new THREE.Scene();
+                camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+                camera.position.z = 15;
 
-        async function init() {
-            try {
-                if (typeof THREE === 'undefined') throw new Error("THREE.js not loaded");
+                renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+                renderer.setSize(container.clientWidth, container.clientHeight);
+                renderer.setPixelRatio(window.devicePixelRatio);
+                container.appendChild(renderer.domElement);
 
-                // Sequential loading of required addons
-                for (const url of ADDONS) {
-                    await new Promise((resolve, reject) => {
-                        const script = document.createElement('script');
-                        script.src = url;
-                        script.crossOrigin = "anonymous";
-                        script.onload = () => {
-                            console.log("Successfully loaded:", url);
-                            resolve();
-                        };
-                        script.onerror = () => reject(new Error("Failed to load: " + url));
-                        document.head.appendChild(script);
+                const loader = new THREE.FontLoader();
+                loader.load('https://unpkg.com/three@0.128.0/examples/fonts/helvetiker_bold.typeface.json', function (font) {
+                    const geometry = new THREE.TextGeometry('404', {
+                        font: font,
+                        size: 5,
+                        height: 1.5,
+                        curveSegments: 12,
+                        bevelEnabled: true,
+                        bevelThickness: 0.1,
+                        bevelSize: 0.1,
+                        bevelOffset: 0,
+                        bevelSegments: 5
                     });
-                }
+                    geometry.center();
 
-                setupScene();
-            } catch (e) {
-                console.error("3D Init Error:", e);
-                showFallback();
+                    const material = new THREE.MeshPhongMaterial({ 
+                        color: 0x8fc830,
+                        emissive: 0x224400,
+                        specular: 0xffffff,
+                        shininess: 30
+                    });
+                    
+                    textMesh = new THREE.Mesh(geometry, material);
+                    scene.add(textMesh);
+
+                    const light = new THREE.PointLight(0xffffff, 1, 100);
+                    light.position.set(10, 10, 10);
+                    scene.add(light);
+                    
+                    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+                    scene.add(ambientLight);
+
+                    animate();
+                    
+                    setTimeout(function() {
+                        const l = document.getElementById('loader');
+                        if(l) l.classList.add('loaded');
+                    }, 500);
+                }, undefined, function(err) {
+                    console.error("Font load error:", err);
+                    container.innerHTML = '<h1 class="hero-title" style="font-size: 8rem; color: var(--accent);">404</h1>';
+                    const l = document.getElementById('loader');
+                    if(l) l.classList.add('loaded');
+                });
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+                if (textMesh) {
+                    textMesh.rotation.y += 0.01;
+                    textMesh.rotation.x = Math.sin(Date.now() * 0.001) * 0.2;
+                }
+                renderer.render(scene, camera);
+            }
+
+            window.addEventListener('resize', function() {
+                if (!renderer) return;
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            });
+
+            if (document.readyState === 'complete') {
+                init3D();
+            } else {
+                window.addEventListener('load', init3D);
+            }
+        })();
+    </script>
+
+    <!-- Game Script -->
+    <script>
+        const gameContainer = document.getElementById('game-container');
+        const gameCanvas = document.getElementById('game-canvas');
+        const gctx = gameCanvas.getContext('2d');
+        const scoreDisplay = document.getElementById('score-display');
+        const startOverlay = document.getElementById('game-start-overlay');
+        const overOverlay = document.getElementById('game-over-overlay');
+        const finalScore = document.getElementById('final-score');
+
+        let gameActive = false;
+        let score = 0;
+        let player = { x: 0, y: 0, size: 20 };
+        let obstacles = [];
+        let animationId;
+
+        function toggleGame() {
+            if (gameContainer.style.display === 'block') {
+                gameContainer.style.display = 'none';
+                gameActive = false;
+                cancelAnimationFrame(animationId);
+            } else {
+                gameContainer.style.display = 'block';
+                gameContainer.scrollIntoView({ behavior: 'smooth' });
+                resizeGameCanvas();
             }
         }
 
-        function setupScene() {
-            const container = document.getElementById('hero-3d-title-container');
-            if (!container) return;
+        function resizeGameCanvas() {
+            gameCanvas.width = gameContainer.clientWidth;
+            gameCanvas.height = gameContainer.clientHeight;
+        }
 
-            s404 = new THREE.Scene();
+        function initGame() {
+            gameActive = true;
+            score = 0;
+            obstacles = [];
+            player.x = gameCanvas.width / 2;
+            player.y = gameCanvas.height - 50;
             
-            c404 = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
-            c404.position.set(0, 0, 15);
+            startOverlay.style.display = 'none';
+            overOverlay.style.display = 'none';
+            scoreDisplay.innerText = `SCORE: ${score}`;
+            
+            if (animationId) cancelAnimationFrame(animationId);
+            gameLoop();
+        }
 
-            r404 = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-            r404.setPixelRatio(window.devicePixelRatio);
-            r404.setSize(container.clientWidth, container.clientHeight);
-            container.appendChild(r404.domElement);
+        function gameLoop() {
+            if (!gameActive) return;
 
-            // In r128, these addons attach themselves to the THREE namespace or global window
-            const FontLoader = THREE.FontLoader || window.FontLoader;
-            const TextGeometry = THREE.TextGeometry || window.TextGeometry;
+            gctx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
 
-            if (!FontLoader || !TextGeometry) {
-                throw new Error("Required THREE addons (FontLoader/TextGeometry) not found.");
-            }
+            // Draw Player
+            gctx.fillStyle = '#8fc830';
+            gctx.fillRect(player.x - player.size/2, player.y - player.size/2, player.size, player.size);
 
-            const loader = new FontLoader();
-            loader.load(FONT_URL, (font) => {
-                const geometry = new TextGeometry('404', {
-                    font: font,
-                    size: 5,
-                    height: 2,
-                    curveSegments: 12,
-                    bevelEnabled: true,
-                    bevelThickness: 0.3,
-                    bevelSize: 0.2,
-                    bevelOffset: 0,
-                    bevelSegments: 5
+            // Spawn Obstacles
+            if (Math.random() < 0.05) {
+                obstacles.push({
+                    x: Math.random() * gameCanvas.width,
+                    y: -20,
+                    size: 15 + Math.random() * 20,
+                    speed: 3 + Math.random() * 5
                 });
-                geometry.center();
-
-                const material = new THREE.MeshPhongMaterial({ 
-                    color: 0x8fc830,
-                    specular: 0xffffff,
-                    shininess: 100
-                });
-                
-                m404 = new THREE.Mesh(geometry, material);
-                s404.add(m404);
-
-                const light1 = new THREE.DirectionalLight(0xffffff, 1);
-                light1.position.set(5, 5, 10);
-                s404.add(light1);
-
-                const light2 = new THREE.PointLight(0x8fc830, 1.2);
-                light2.position.set(-5, -5, 5);
-                s404.add(light2);
-
-                s404.add(new THREE.AmbientLight(0xffffff, 0.6));
-
-                animate();
-                
-                const l = document.getElementById('loader');
-                if(l) l.classList.add('loaded');
-            }, undefined, (err) => {
-                console.error("Font Load Error:", err);
-                showFallback();
-            });
-
-            window.addEventListener('resize', () => {
-                c404.aspect = container.clientWidth / container.clientHeight;
-                c404.updateProjectionMatrix();
-                r404.setSize(container.clientWidth, container.clientHeight);
-            });
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-            frame += 0.02;
-            if (m404) {
-                m404.rotation.y += 0.035; // Distinct rotation
-                m404.position.y = Math.sin(frame) * 0.4; // Gentle float
             }
-            r404.render(s404, c404);
-        }
 
-        function showFallback() {
-            const container = document.getElementById('hero-3d-title-container');
-            if (container) {
-                container.innerHTML = '<h1 style="font-size: 8rem; color: #8fc830; margin: 0; line-height: 1;">404</h1>';
-            }
-            const l = document.getElementById('loader');
-            if(l) l.classList.add('loaded');
-        }
+            // Update & Draw Obstacles
+            for (let i = obstacles.length - 1; i >= 0; i--) {
+                const obs = obstacles[i];
+                obs.y += obs.speed;
 
-        init();
+                gctx.fillStyle = '#ff4444';
+                gctx.fillRect(obs.x - obs.size/2, obs.y - obs.size/2, obs.size, obs.size);
 
-        // --- Game System ---
-        const overlay = document.getElementById('game-overlay');
-        const logText = document.getElementById('boot-log-text');
-        const gameWrap = document.getElementById('game-inner-wrap');
-        const canvas = document.getElementById('game-canvas');
-        const ctx = canvas.getContext('2d');
-        let active = false, sc = 0, li = 3, objs = [], p = { x: 175, y: 370, w: 50, h: 10 };
-
-        window.launchGame = function() {
-            overlay.style.display = 'flex';
-            setTimeout(() => overlay.classList.add('active'), 10);
-            logText.innerHTML = "> ANALYZING SIGNAL...<br>> ESTABLISHING SECURE LINK...";
-            const steps = ["> CALIBRATING FREQUENCY...", "> LOADING DATA BLOCKS...", "> SYSTEM READY."];
-            let i = 0;
-            const t = setInterval(() => {
-                if(i < steps.length) logText.innerHTML += "<br>> " + steps[i++];
-                else {
-                    clearInterval(t);
-                    setTimeout(() => {
-                        logText.style.display = 'none';
-                        gameWrap.style.display = 'block';
-                        canvas.style.display = 'block';
-                        startGame();
-                    }, 800);
+                // Collision Check
+                const dx = player.x - obs.x;
+                const dy = player.y - obs.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < (player.size/2 + obs.size/2)) {
+                    gameOver();
                 }
-            }, 600);
-        };
 
-        window.closeGame = function() {
-            overlay.classList.remove('active');
-            setTimeout(() => {
-                overlay.style.display = 'none';
-                active = false;
-                logText.style.display = 'block';
-                gameWrap.style.display = 'none';
-            }, 500);
-        };
-
-        function startGame() {
-            active = true; sc = 0; li = 3; objs = [];
-            document.getElementById('score-count').innerText = sc;
-            document.getElementById('life-count').innerText = li;
-            const handler = (e) => {
-                const r = canvas.getBoundingClientRect();
-                const x = e.touches ? e.touches[0].clientX : e.clientX;
-                p.x = (x - r.left) * (canvas.width / r.width) - p.w/2;
-                p.x = Math.max(0, Math.min(canvas.width - p.w, p.x));
-            };
-            window.addEventListener('mousemove', handler);
-            window.addEventListener('touchmove', handler, {passive:false});
-            runLoop();
-        }
-
-        function runLoop() {
-            if(!active) return;
-            ctx.fillStyle = 'rgba(0,0,0,0.3)';
-            ctx.fillRect(0,0,canvas.width,canvas.height);
-            ctx.fillStyle = '#8fc830';
-            ctx.fillRect(p.x, p.y, p.w, p.h);
-            if(Math.random() < 0.04) objs.push({ x: Math.random()*380, y: -20, v: 4+Math.random()*3, t: Math.random()<0.15?'X':'1' });
-            for(let i=objs.length-1; i>=0; i--) {
-                const o = objs[i]; o.y += o.v;
-                ctx.fillStyle = o.t === '1' ? '#0f0' : '#f44';
-                ctx.font = 'bold 20px monospace';
-                ctx.fillText(o.t, o.x, o.y);
-                if(o.y > p.y && o.y < p.y+15 && o.x > p.x-10 && o.x < p.x+p.w) {
-                    if(o.t === '1') sc += 10; else li--;
-                    document.getElementById('score-count').innerText = sc;
-                    document.getElementById('life-count').innerText = li;
-                    objs.splice(i,1);
-                    if(li <= 0) { active = false; alert('SYSTEM ERROR: RECOVERY FAILED\nSCORE: ' + sc); closeGame(); }
-                } else if(o.y > 400) objs.splice(i,1);
+                // Remove off-screen
+                if (obs.y > gameCanvas.height + 20) {
+                    obstacles.splice(i, 1);
+                    score += 10;
+                    scoreDisplay.innerText = `SCORE: ${score}`;
+                }
             }
-            requestAnimationFrame(runLoop);
+
+            animationId = requestAnimationFrame(gameLoop);
         }
-    })();
+
+        function gameOver() {
+            gameActive = false;
+            overOverlay.style.display = 'flex';
+            finalScore.innerText = `SCORE: ${score}`;
+        }
+
+        // Controls
+        const handleMove = (e) => {
+            if (!gameActive) return;
+            const rect = gameCanvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            
+            player.x = (clientX - rect.left) * (gameCanvas.width / rect.width);
+            player.y = (clientY - rect.top) * (gameCanvas.height / rect.height);
+
+            // Keep in bounds
+            player.x = Math.max(player.size/2, Math.min(gameCanvas.width - player.size/2, player.x));
+            player.y = Math.max(player.size/2, Math.min(gameCanvas.height - player.size/2, player.y));
+        };
+
+        gameCanvas.addEventListener('mousemove', handleMove);
+        gameCanvas.addEventListener('touchmove', (e) => {
+            handleMove(e);
+            e.preventDefault();
+        }, { passive: false });
+
+        window.addEventListener('resize', resizeGameCanvas);
     </script>
 </body>
 </html>
