@@ -12,6 +12,8 @@
     font-weight: 400;
     font-style: normal;
     scrollbar-width: none;
+
+    user-select: none;
 }
 
 *::-webkit-scrollbar-thumb {
@@ -880,6 +882,7 @@ footer {
         z-index: 100 !important;
         margin-bottom: 12px !important;
         margin-top: 0 !important;
+        flex-wrap: wrap;
     }
 
     footer .lang-dropdown:hover .lang-options {
