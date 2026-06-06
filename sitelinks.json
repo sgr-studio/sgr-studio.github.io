@@ -1,0 +1,33 @@
+{
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "SGR STUDIO",
+      "url": "https://sgr-studio.github.io/",
+      "logo": "https://raw.githubusercontent.com/SuchGameR/sycs-Vue/refs/heads/About/Logo.svg",
+      "sameAs": [
+        "https://www.youtube.com/@SGR-STUDIO-OFFICIAL",
+        "https://github.com/sgr-studio/"
+      ],
+      "hasPart": [
+        {
+          "@type": "WebPage",
+          "name": "ABOUT",
+          "url": "https://sgr-studio.github.io/about.html"
+        },
+        {
+          "@type": "WebPage",
+          "name": "BLOG",
+          "url": "https://sgr-studio.github.io/blog.html"
+        },
+        {
+          "@type": "WebPage",
+          "name": "WORKS",
+          "url": "https://sgr-studio.github.io/works.html"
+        },
+        {
+          "@type": "WebPage",
+          "name": "CONTACT",
+          "url": "https://sgr-studio.github.io/contact.html"
+        }
+      ]
+    }
