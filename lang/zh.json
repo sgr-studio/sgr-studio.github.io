@@ -68,7 +68,9 @@
         "app6_name": "notPort",
         "app6_desc": "已停止开发的匿名留言板应用",
         "app7_name": "2sCode",
-        "app7_desc": "正在开发的简单文本编辑器"
+        "app7_desc": "正在开发的简单文本编辑器",
+        "app8_name": "Ayaris",
+        "app8_desc": "通用型助手 AI"
     },
     "footer": {
         "theme_dark": "深色模式",

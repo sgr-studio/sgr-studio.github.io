@@ -68,7 +68,9 @@
         "app6_name": "notPort",
         "app6_desc": "개발 종료된 익명 게시판 앱",
         "app7_name": "2sCode",
-        "app7_desc": "개발 중인 심플한 텍스트 에디터"
+        "app7_desc": "개발 중인 심플한 텍스트 에디터",
+        "app8_name": "Ayaris",
+        "app8_desc": "범용형 어시스턴트 AI"
     },
     "footer": {
         "theme_dark": "다크 모드",

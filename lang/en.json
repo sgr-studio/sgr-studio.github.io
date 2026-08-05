@@ -68,7 +68,9 @@
         "app6_name": "notPort",
         "app6_desc": "Discontinued anonymous bulletin board app.",
         "app7_name": "2sCode",
-        "app7_desc": "Simple text editor under development."
+        "app7_desc": "Simple text editor under development.",
+        "app8_name": "Ayaris",
+        "app8_desc": "General-purpose assistant AI."
     },
     "footer": {
         "theme_dark": "Dark Mode",

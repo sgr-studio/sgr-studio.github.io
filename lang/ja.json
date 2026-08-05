@@ -68,7 +68,9 @@
         "app6_name": "notPort",
         "app6_desc": "開発終了の匿名掲示板アプリ",
         "app7_name": "2sCode",
-        "app7_desc": "開発中のシンプルなテキストエディタ"
+        "app7_desc": "開発中のシンプルなテキストエディタ",
+        "app8_name": "Ayaris",
+        "app8_desc": "汎用型アシスタントAI"
     },
     "footer": {
         "theme_dark": "ダークモード",
