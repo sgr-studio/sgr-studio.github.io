@@ -1,0 +1,28 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SGR Studio",
+  "url": "https://sgr-studio.github.io/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://sgr-studio.github.io/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "hasPart": [
+    {
+      "@type": "SiteNavigationElement",
+      "name": "ABOUT",
+      "url": "https://sgr-studio.github.io/about.html"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "WORKS",
+      "url": "https://sgr-studio.github.io/works.html"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "BLOG",
+      "url": "https://sgr-studio.github.io/blog.html"
+    }
+  ]
+}
